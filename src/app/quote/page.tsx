@@ -1,0 +1,752 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
+type QuoteFormData = {
+  // Personal Info
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  
+  // Project Details
+  serviceType: string;
+  projectDescription: string;
+  budgetRange: string;
+  timeline: string;
+  
+  // Property Info
+  address: string;
+  city: string;
+  zipCode: string;
+  propertyType: string;
+  homeAge: string;
+  
+  // Additional Info
+  previousWork: string;
+  designPreferences: string;
+  specialRequirements: string;
+  howDidYouHear: string;
+  
+  // Preferences
+  preferredContactMethod: 'email' | 'phone' | 'either';
+  bestTimeToCall: string;
+  schedulConsultation: boolean;
+};
+
+export default function Quote() {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm<QuoteFormData>();
+
+  const totalSteps = 4;
+
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
+  const onSubmit = async (data: QuoteFormData) => {
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      console.log('Quote form submitted:', data);
+      setIsSubmitted(true);
+      setIsSubmitting(false);
+      reset();
+    }, 2000);
+  };
+
+  const nextStep = () => {
+    if (currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  if (isSubmitted) {
+    return (
+      <div className="min-h-screen pt-20 flex items-center justify-center bg-gray-50">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg text-center"
+        >
+          <div className="text-6xl mb-6">🎉</div>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
+          <p className="text-lg text-gray-600 mb-6">
+            We&apos;ve received your quote request and our team is already reviewing the details. 
+            You can expect to hear from us within 24 hours with your detailed estimate.
+          </p>
+          
+          <div className="bg-amber-50 border border-amber-200 p-6 rounded-lg mb-6">
+            <h3 className="text-lg font-semibold text-amber-800 mb-2">
+              What happens next?
+            </h3>
+            <ul className="text-amber-700 text-left space-y-2">
+              <li className="flex items-start">
+                <span className="text-amber-500 mr-2">1.</span>
+                Our team reviews your project details within 2 hours
+              </li>
+              <li className="flex items-start">
+                <span className="text-amber-500 mr-2">2.</span>
+                We&apos;ll call or email you to schedule a consultation
+              </li>
+              <li className="flex items-start">
+                <span className="text-amber-500 mr-2">3.</span>
+                We visit your home to assess the project and discuss options
+              </li>
+              <li className="flex items-start">
+                <span className="text-amber-500 mr-2">4.</span>
+                You receive a detailed written estimate within 48 hours
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <button
+              onClick={() => setIsSubmitted(false)}
+              className="btn-primary mr-4"
+            >
+              Request Another Quote
+            </button>
+            <a 
+              href="tel:9725557366"
+              className="btn-secondary"
+            >
+              Call Us Now
+            </a>
+          </div>
+          
+          <p className="text-sm text-gray-500 mt-6">
+            For immediate assistance, call us at (972) 555-REMO
+          </p>
+        </motion.div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen pt-20 bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative py-16 bg-gradient-to-r from-gray-900 via-gray-800 to-amber-900">
+        <div className="absolute inset-0 bg-black/40" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20"
+          style={{
+            backgroundImage: 'url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&h=1080&fit=crop")'
+          }}
+        />
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold font-serif mb-4">
+              Get Your Free <span className="gradient-text">Quote</span>
+            </h1>
+            <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
+              Tell us about your project and receive a detailed estimate within 24 hours. 
+              No obligations, just honest pricing from DFW&apos;s trusted remodeling experts.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Progress Bar */}
+      <div className="bg-white border-b">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-sm font-medium text-gray-600">
+              Step {currentStep} of {totalSteps}
+            </span>
+            <span className="text-sm text-gray-500">
+              {Math.round((currentStep / totalSteps) * 100)}% Complete
+            </span>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <motion.div 
+              className="bg-amber-500 h-2 rounded-full transition-all duration-500 ease-out"
+              style={{ width: `${(currentStep / totalSteps) * 100}%` }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Form Content */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            
+            {/* Step 1: Personal Information */}
+            {currentStep === 1 && (
+              <motion.div
+                variants={fadeInUp}
+                initial="initial"
+                animate="animate"
+                className="bg-white p-8 rounded-2xl shadow-lg"
+              >
+                <h2 className="text-3xl font-bold font-serif mb-6">
+                  Let&apos;s Start with <span className="gradient-text">Your Information</span>
+                </h2>
+                <p className="text-gray-600 mb-8">
+                  We need some basic information to create your personalized quote.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+                      First Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      {...register('firstName', { required: 'First name is required' })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      placeholder="Your first name"
+                    />
+                    {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      {...register('lastName', { required: 'Last name is required' })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      placeholder="Your last name"
+                    />
+                    {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>}
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      {...register('email', { 
+                        required: 'Email is required',
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: 'Invalid email address'
+                        }
+                      })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      placeholder="your.email@example.com"
+                    />
+                    {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      {...register('phone', { required: 'Phone number is required' })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      placeholder="(972) 555-0123"
+                    />
+                    {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
+                  </div>
+                </div>
+
+                <div className="flex justify-end">
+                  <button
+                    type="button"
+                    onClick={nextStep}
+                    className="btn-primary"
+                  >
+                    Next Step →
+                  </button>
+                </div>
+              </motion.div>
+            )}
+
+            {/* Step 2: Project Details */}
+            {currentStep === 2 && (
+              <motion.div
+                variants={fadeInUp}
+                initial="initial"
+                animate="animate"
+                className="bg-white p-8 rounded-2xl shadow-lg"
+              >
+                <h2 className="text-3xl font-bold font-serif mb-6">
+                  Tell Us About Your <span className="gradient-text">Project</span>
+                </h2>
+                <p className="text-gray-600 mb-8">
+                  The more details you provide, the more accurate your estimate will be.
+                </p>
+
+                <div className="mb-6">
+                  <label htmlFor="serviceType" className="block text-sm font-medium text-gray-700 mb-2">
+                    Type of Project *
+                  </label>
+                  <select
+                    id="serviceType"
+                    {...register('serviceType', { required: 'Please select a service type' })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                  >
+                    <option value="">Select your project type</option>
+                    <option value="Kitchen Remodeling">Kitchen Remodeling</option>
+                    <option value="Bathroom Renovation">Bathroom Renovation</option>
+                    <option value="Whole Home Remodel">Whole Home Remodel</option>
+                    <option value="Home Addition">Home Addition</option>
+                    <option value="Outdoor Living">Outdoor Living Space</option>
+                    <option value="Flooring Installation">Flooring Installation</option>
+                    <option value="Multiple Projects">Multiple Projects</option>
+                    <option value="Other">Other (please specify in description)</option>
+                  </select>
+                  {errors.serviceType && <p className="text-red-500 text-sm mt-1">{errors.serviceType.message}</p>}
+                </div>
+
+                <div className="mb-6">
+                  <label htmlFor="projectDescription" className="block text-sm font-medium text-gray-700 mb-2">
+                    Project Description *
+                  </label>
+                  <textarea
+                    id="projectDescription"
+                    rows={5}
+                    {...register('projectDescription', { required: 'Project description is required' })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all resize-none"
+                    placeholder="Describe your project in detail. Include specific rooms, materials, features, and any special requirements..."
+                  />
+                  {errors.projectDescription && <p className="text-red-500 text-sm mt-1">{errors.projectDescription.message}</p>}
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <label htmlFor="budgetRange" className="block text-sm font-medium text-gray-700 mb-2">
+                      Budget Range *
+                    </label>
+                    <select
+                      id="budgetRange"
+                      {...register('budgetRange', { required: 'Please select a budget range' })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                    >
+                      <option value="">Select your budget</option>
+                      <option value="Under $15,000">Under $15,000</option>
+                      <option value="$15,000 - $30,000">$15,000 - $30,000</option>
+                      <option value="$30,000 - $50,000">$30,000 - $50,000</option>
+                      <option value="$50,000 - $75,000">$50,000 - $75,000</option>
+                      <option value="$75,000 - $100,000">$75,000 - $100,000</option>
+                      <option value="$100,000 - $150,000">$100,000 - $150,000</option>
+                      <option value="Over $150,000">Over $150,000</option>
+                      <option value="Not sure yet">Not sure yet</option>
+                    </select>
+                    {errors.budgetRange && <p className="text-red-500 text-sm mt-1">{errors.budgetRange.message}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
+                      Preferred Timeline *
+                    </label>
+                    <select
+                      id="timeline"
+                      {...register('timeline', { required: 'Please select a timeline' })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                    >
+                      <option value="">When would you like to start?</option>
+                      <option value="ASAP">As soon as possible</option>
+                      <option value="Within 1 month">Within 1 month</option>
+                      <option value="1-3 months">1-3 months</option>
+                      <option value="3-6 months">3-6 months</option>
+                      <option value="6+ months">6+ months from now</option>
+                      <option value="Just planning">Just planning / exploring options</option>
+                    </select>
+                    {errors.timeline && <p className="text-red-500 text-sm mt-1">{errors.timeline.message}</p>}
+                  </div>
+                </div>
+
+                <div className="flex justify-between">
+                  <button
+                    type="button"
+                    onClick={prevStep}
+                    className="btn-secondary"
+                  >
+                    ← Previous Step
+                  </button>
+                  <button
+                    type="button"
+                    onClick={nextStep}
+                    className="btn-primary"
+                  >
+                    Next Step →
+                  </button>
+                </div>
+              </motion.div>
+            )}
+
+            {/* Step 3: Property Information */}
+            {currentStep === 3 && (
+              <motion.div
+                variants={fadeInUp}
+                initial="initial"
+                animate="animate"
+                className="bg-white p-8 rounded-2xl shadow-lg"
+              >
+                <h2 className="text-3xl font-bold font-serif mb-6">
+                  About Your <span className="gradient-text">Property</span>
+                </h2>
+                <p className="text-gray-600 mb-8">
+                  Property details help us provide more accurate estimates and planning.
+                </p>
+
+                <div className="mb-6">
+                  <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
+                    Property Address *
+                  </label>
+                  <input
+                    type="text"
+                    id="address"
+                    {...register('address', { required: 'Address is required' })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                    placeholder="123 Main Street"
+                  />
+                  {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address.message}</p>}
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
+                      City *
+                    </label>
+                    <input
+                      type="text"
+                      id="city"
+                      {...register('city', { required: 'City is required' })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      placeholder="Dallas"
+                    />
+                    {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city.message}</p>}
+                  </div>
+
+                  <div>
+                    <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-2">
+                      ZIP Code *
+                    </label>
+                    <input
+                      type="text"
+                      id="zipCode"
+                      {...register('zipCode', { required: 'ZIP code is required' })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      placeholder="75201"
+                    />
+                    {errors.zipCode && <p className="text-red-500 text-sm mt-1">{errors.zipCode.message}</p>}
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <label htmlFor="propertyType" className="block text-sm font-medium text-gray-700 mb-2">
+                      Property Type
+                    </label>
+                    <select
+                      id="propertyType"
+                      {...register('propertyType')}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                    >
+                      <option value="">Select property type</option>
+                      <option value="Single Family Home">Single Family Home</option>
+                      <option value="Townhouse">Townhouse</option>
+                      <option value="Condo">Condominium</option>
+                      <option value="Duplex">Duplex</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="homeAge" className="block text-sm font-medium text-gray-700 mb-2">
+                      Approximate Home Age
+                    </label>
+                    <select
+                      id="homeAge"
+                      {...register('homeAge')}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                    >
+                      <option value="">Select age range</option>
+                      <option value="Less than 5 years">Less than 5 years</option>
+                      <option value="5-10 years">5-10 years</option>
+                      <option value="10-20 years">10-20 years</option>
+                      <option value="20-30 years">20-30 years</option>
+                      <option value="30-50 years">30-50 years</option>
+                      <option value="Over 50 years">Over 50 years</option>
+                      <option value="Not sure">Not sure</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="flex justify-between">
+                  <button
+                    type="button"
+                    onClick={prevStep}
+                    className="btn-secondary"
+                  >
+                    ← Previous Step
+                  </button>
+                  <button
+                    type="button"
+                    onClick={nextStep}
+                    className="btn-primary"
+                  >
+                    Next Step →
+                  </button>
+                </div>
+              </motion.div>
+            )}
+
+            {/* Step 4: Final Details */}
+            {currentStep === 4 && (
+              <motion.div
+                variants={fadeInUp}
+                initial="initial"
+                animate="animate"
+                className="bg-white p-8 rounded-2xl shadow-lg"
+              >
+                <h2 className="text-3xl font-bold font-serif mb-6">
+                  Final <span className="gradient-text">Details</span>
+                </h2>
+                <p className="text-gray-600 mb-8">
+                  A few more details to ensure we provide the best possible service.
+                </p>
+
+                <div className="mb-6">
+                  <label htmlFor="previousWork" className="block text-sm font-medium text-gray-700 mb-2">
+                    Have you done any remodeling work before?
+                  </label>
+                  <select
+                    id="previousWork"
+                    {...register('previousWork')}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                  >
+                    <option value="">Select option</option>
+                    <option value="This is our first project">This is our first remodeling project</option>
+                    <option value="Small projects only">We&apos;ve done small projects (paint, fixtures)</option>
+                    <option value="Major renovations">We&apos;ve done major renovations before</option>
+                    <option value="Multiple projects">We&apos;ve completed multiple remodeling projects</option>
+                  </select>
+                </div>
+
+                <div className="mb-6">
+                  <label htmlFor="designPreferences" className="block text-sm font-medium text-gray-700 mb-2">
+                    Design Style Preferences
+                  </label>
+                  <textarea
+                    id="designPreferences"
+                    rows={3}
+                    {...register('designPreferences')}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all resize-none"
+                    placeholder="Modern, traditional, farmhouse, contemporary, etc. Include any specific materials, colors, or features you prefer..."
+                  />
+                </div>
+
+                <div className="mb-6">
+                  <label htmlFor="specialRequirements" className="block text-sm font-medium text-gray-700 mb-2">
+                    Special Requirements or Considerations
+                  </label>
+                  <textarea
+                    id="specialRequirements"
+                    rows={3}
+                    {...register('specialRequirements')}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all resize-none"
+                    placeholder="Accessibility needs, pet considerations, work schedule constraints, HOA requirements, etc."
+                  />
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label htmlFor="howDidYouHear" className="block text-sm font-medium text-gray-700 mb-2">
+                      How did you hear about us?
+                    </label>
+                    <select
+                      id="howDidYouHear"
+                      {...register('howDidYouHear')}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                    >
+                      <option value="">Select option</option>
+                      <option value="Google Search">Google Search</option>
+                      <option value="Friend/Family Referral">Friend/Family Referral</option>
+                      <option value="Social Media">Social Media</option>
+                      <option value="Home Show">Home Show</option>
+                      <option value="Previous Customer">We&apos;re a previous customer</option>
+                      <option value="Contractor Referral">Another contractor referred you</option>
+                      <option value="Online Reviews">Online Reviews</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="preferredContactMethod" className="block text-sm font-medium text-gray-700 mb-2">
+                      Preferred Contact Method
+                    </label>
+                    <select
+                      id="preferredContactMethod"
+                      {...register('preferredContactMethod')}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                    >
+                      <option value="either">Either email or phone</option>
+                      <option value="email">Email preferred</option>
+                      <option value="phone">Phone call preferred</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="mb-8">
+                  <label htmlFor="bestTimeToCall" className="block text-sm font-medium text-gray-700 mb-2">
+                    Best Time to Contact You
+                  </label>
+                  <select
+                    id="bestTimeToCall"
+                    {...register('bestTimeToCall')}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                  >
+                    <option value="">Select preferred time</option>
+                    <option value="Morning (8-12)">Morning (8AM-12PM)</option>
+                    <option value="Afternoon (12-5)">Afternoon (12PM-5PM)</option>
+                    <option value="Evening (5-8)">Evening (5PM-8PM)</option>
+                    <option value="Weekend">Weekends</option>
+                    <option value="Anytime">Anytime</option>
+                  </select>
+                </div>
+
+                <div className="bg-amber-50 border border-amber-200 p-6 rounded-lg mb-8">
+                  <div className="flex items-start space-x-3">
+                    <input
+                      type="checkbox"
+                      id="scheduleConsultation"
+                      {...register('schedulConsultation')}
+                      className="mt-1 w-4 h-4 text-amber-500 border-amber-300 rounded focus:ring-amber-500"
+                    />
+                    <div>
+                      <label htmlFor="scheduleConsultation" className="text-amber-800 font-medium">
+                        Schedule an in-home consultation
+                      </label>
+                      <p className="text-amber-700 text-sm mt-1">
+                        Check this box to schedule a free in-home consultation where we can discuss your project in detail and provide the most accurate estimate.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex justify-between">
+                  <button
+                    type="button"
+                    onClick={prevStep}
+                    className="btn-secondary"
+                  >
+                    ← Previous Step
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Get My Free Quote'}
+                  </button>
+                </div>
+
+                <p className="text-sm text-gray-500 text-center mt-6">
+                  By submitting this form, you agree to be contacted by Remodel It! regarding your project. 
+                  We respect your privacy and will never share your information with third parties.
+                </p>
+              </motion.div>
+            )}
+
+          </form>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="section-padding bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold font-serif mb-6">
+              Why Choose Our <span className="gradient-text">Free Quote Service</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "⚡",
+                title: "Quick Response",
+                description: "Get your detailed quote within 24 hours of submission. We respect your time and act fast."
+              },
+              {
+                icon: "📐",
+                title: "Accurate Estimates",
+                description: "Our detailed quotes are based on 15+ years of experience and current market pricing."
+              },
+              {
+                icon: "🤝",
+                title: "No Pressure",
+                description: "Our quotes come with no obligations. Take your time to make the right decision for your home."
+              },
+              {
+                icon: "🏆",
+                title: "Expert Consultation",
+                description: "Included free in-home consultation with our design experts to discuss your vision."
+              },
+              {
+                icon: "💰",
+                title: "Transparent Pricing",
+                description: "No hidden costs or surprise fees. Every detail is clearly itemized in your quote."
+              },
+              {
+                icon: "📋",
+                title: "Comprehensive Planning",
+                description: "We include timeline, materials, labor, and project phases in every detailed estimate."
+              }
+            ].map((benefit, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="text-center group"
+              >
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
