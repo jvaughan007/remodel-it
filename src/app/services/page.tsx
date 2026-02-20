@@ -220,8 +220,8 @@ export default function Services() {
                     <p className="text-gray-200 text-sm">{service.timeline}</p>
                   </div>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-600 mb-4">{service.shortDesc}</p>
+                <div className="p-6 sm:p-8">
+                  <p className="text-gray-600 mb-6 leading-relaxed">{service.shortDesc}</p>
                   <ul className="space-y-2 mb-6">
                     {service.features.slice(0, 3).map((feature, idx) => (
                       <li key={idx} className="flex items-center text-sm text-gray-500">

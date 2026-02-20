@@ -256,8 +256,8 @@ export default function Home() {
                     <h3 className="text-2xl font-bold">{service.title}</h3>
                   </div>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-600 mb-4">{service.description}</p>
+                <div className="p-6 sm:p-8">
+                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                   <Link 
                     href="/services" 
                     className="text-amber-500 font-semibold hover:text-amber-600 transition-colors inline-flex items-center"
