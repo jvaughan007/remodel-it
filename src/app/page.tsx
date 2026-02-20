@@ -122,12 +122,13 @@ export default function Home() {
               we bring your vision to life with exceptional craftsmanship.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto"
               >
-                <Link href="/quote" className="btn-primary text-lg px-12 py-4">
+                <Link href="/quote" className="btn-primary text-lg px-8 sm:px-12 py-4 block text-center">
                   Get Free Quote
                 </Link>
               </motion.div>
@@ -135,8 +136,9 @@ export default function Home() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto"
               >
-                <Link href="/gallery" className="btn-secondary text-lg px-12 py-4">
+                <Link href="/gallery" className="btn-secondary text-lg px-8 sm:px-12 py-4 block text-center">
                   View Portfolio
                 </Link>
               </motion.div>
