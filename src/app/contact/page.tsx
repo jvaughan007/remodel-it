@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Link from 'next/link';
 
 type ContactFormData = {
   name: string;
@@ -41,7 +42,7 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       console.log('Form submitted:', data);
@@ -61,7 +62,7 @@ export default function Contact() {
     },
     {
       icon: "✉️",
-      title: "Email", 
+      title: "Email",
       details: "hello@trinityremodelingdfw.com",
       subDetails: "We respond within 2 hours",
       action: "mailto:hello@trinityremodelingdfw.com"
@@ -100,15 +101,20 @@ export default function Contact() {
           <div className="text-6xl mb-4">✅</div>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Thank You!</h2>
           <p className="text-gray-600 mb-6">
-            We&apos;ve received your message and will get back to you within 24 hours. 
+            We&apos;ve received your message and will get back to you within 24 hours.
             For urgent matters, please call us directly at (972) 555-TRIN.
           </p>
-          <button
-            onClick={() => setIsSubmitted(false)}
-            className="btn-primary"
-          >
-            Send Another Message
-          </button>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button
+              onClick={() => setIsSubmitted(false)}
+              className="btn-primary"
+            >
+              Send Another Message
+            </button>
+            <Link href="/quote" className="btn-secondary text-center">
+              Get a Quote
+            </Link>
+          </div>
         </motion.div>
       </div>
     );
@@ -117,9 +123,9 @@ export default function Contact() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-r from-gray-900 via-gray-800 to-[#0A1A2F]">
+      <section className="relative py-24" style={{ background: 'linear-gradient(to right, #111827, #1f2937, var(--deep-navy))' }}>
         <div className="absolute inset-0 bg-black/40" />
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&h=1080&fit=crop")'
@@ -145,7 +151,7 @@ export default function Contact() {
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
-            
+
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -60 }}
@@ -157,7 +163,7 @@ export default function Contact() {
                 Send Us a <span className="gradient-text">Message</span>
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form below and we&apos;ll get back to you within 24 hours. 
+                Fill out the form below and we&apos;ll get back to you within 24 hours.
                 For immediate assistance, please call us directly.
               </p>
 
@@ -172,12 +178,15 @@ export default function Contact() {
                       type="text"
                       id="name"
                       {...register('name', { required: 'Name is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      style={{ '--tw-ring-color': 'var(--accent-teal)' } as React.CSSProperties}
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                       placeholder="Your full name"
                     />
                     {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                       Email Address *
@@ -185,14 +194,16 @@ export default function Contact() {
                     <input
                       type="email"
                       id="email"
-                      {...register('email', { 
+                      {...register('email', {
                         required: 'Email is required',
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                           message: 'Invalid email address'
                         }
                       })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                       placeholder="your.email@example.com"
                     />
                     {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
@@ -209,11 +220,13 @@ export default function Contact() {
                       type="tel"
                       id="phone"
                       {...register('phone')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                       placeholder="(972) 555-0123"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                       Subject *
@@ -221,7 +234,9 @@ export default function Contact() {
                     <select
                       id="subject"
                       {...register('subject', { required: 'Please select a subject' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     >
                       <option value="">Select a subject</option>
                       <option value="Kitchen Remodeling">Kitchen Remodeling</option>
@@ -246,14 +261,16 @@ export default function Contact() {
                     <select
                       id="preferredContact"
                       {...register('preferredContact')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     >
                       <option value="either">Either email or phone</option>
                       <option value="email">Email preferred</option>
                       <option value="phone">Phone preferred</option>
                     </select>
                   </div>
-                  
+
                   <div>
                     <label htmlFor="bestTime" className="block text-sm font-medium text-gray-700 mb-2">
                       Best Time to Contact
@@ -261,7 +278,9 @@ export default function Contact() {
                     <select
                       id="bestTime"
                       {...register('bestTime')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     >
                       <option value="">Anytime</option>
                       <option value="Morning (8-12)">Morning (8AM-12PM)</option>
@@ -281,7 +300,9 @@ export default function Contact() {
                     id="message"
                     rows={6}
                     {...register('message', { required: 'Message is required' })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none"
+                    onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                    onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     placeholder="Tell us about your project, timeline, budget, and any specific requirements..."
                   />
                   {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
@@ -299,7 +320,7 @@ export default function Contact() {
                 </div>
 
                 <p className="text-sm text-gray-500 text-center">
-                  By submitting this form, you agree to be contacted by Trinity Remodeling 
+                  By submitting this form, you agree to be contacted by Trinity Remodeling
                   regarding your inquiry. We respect your privacy and will never share your information.
                 </p>
               </form>
@@ -318,7 +339,7 @@ export default function Contact() {
                   Get In <span className="gradient-text">Touch</span>
                 </h2>
                 <p className="text-gray-600 text-lg">
-                  We&apos;re here to help with all your remodeling needs. Contact us today 
+                  We&apos;re here to help with all your remodeling needs. Contact us today
                   for a free consultation and see how we can transform your home.
                 </p>
               </div>
@@ -326,7 +347,7 @@ export default function Contact() {
               {/* Contact Info Cards */}
               <motion.div
                 variants={stagger}
-                initial="initial" 
+                initial="initial"
                 animate="animate"
                 className="space-y-4"
               >
@@ -345,9 +366,12 @@ export default function Contact() {
                           {info.title}
                         </h3>
                         {info.action ? (
-                          <a 
+                          <a
                             href={info.action}
-                            className="text-[#2BB6C9] hover:text-[#239AA9] font-medium"
+                            className="font-medium"
+                            style={{ color: 'var(--accent-teal)' }}
+                            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--teal-dark)'; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
                           >
                             {info.details}
                           </a>
@@ -361,6 +385,29 @@ export default function Contact() {
                 ))}
               </motion.div>
 
+              {/* Quick Quote CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="rounded-2xl p-6" style={{ backgroundColor: 'var(--accent-teal)' }}
+              >
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Want a detailed estimate?
+                </h3>
+                <p className="text-white/90 mb-4">
+                  Use our free quote form for a comprehensive project estimate within 24 hours.
+                </p>
+                <Link
+                  href="/quote"
+                  className="bg-white hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-all inline-block"
+                  style={{ color: 'var(--accent-teal)' }}
+                >
+                  Get Free Quote
+                </Link>
+              </motion.div>
+
               {/* Emergency Contact */}
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -369,15 +416,18 @@ export default function Contact() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="bg-[#e8f8fa] border border-[#a8e4ec] p-6 rounded-2xl"
               >
-                <h3 className="text-lg font-semibold text-[#0A1A2F] mb-2">
+                <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--deep-navy)' }}>
                   Need Immediate Assistance?
                 </h3>
-                <p className="text-[#1a6b77] mb-4">
+                <p className="mb-4" style={{ color: '#1a6b77' }}>
                   For urgent matters or emergency repairs, call us directly:
                 </p>
-                <a 
+                <a
                   href="tel:9725558746"
-                  className="text-2xl font-bold text-[#239AA9] hover:text-[#0A1A2F] transition-colors"
+                  className="text-2xl font-bold transition-colors"
+                  style={{ color: 'var(--teal-dark)' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--deep-navy)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--teal-dark)'; }}
                 >
                   (972) 555-TRIN
                 </a>
@@ -401,7 +451,7 @@ export default function Contact() {
               We Proudly Serve the <span className="gradient-text">DFW Area</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our team provides comprehensive remodeling services throughout the Dallas/Fort Worth 
+              Our team provides comprehensive remodeling services throughout the Dallas/Fort Worth
               metroplex and surrounding communities.
             </p>
           </motion.div>
@@ -422,7 +472,7 @@ export default function Contact() {
               </div>
             ))}
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -431,10 +481,10 @@ export default function Contact() {
             className="text-center"
           >
             <p className="text-gray-600 mb-6">
-              Don&apos;t see your city listed? We serve many more communities throughout the DFW area. 
+              Don&apos;t see your city listed? We serve many more communities throughout the DFW area.
               Give us a call to see if we service your location!
             </p>
-            <a 
+            <a
               href="tel:9725558746"
               className="btn-primary inline-block"
             >
@@ -444,7 +494,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* Map Section - Fixed button wrapping */}
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -478,16 +528,16 @@ export default function Contact() {
               <strong>Saturday:</strong> 8:00 AM - 4:00 PM<br />
               <strong>Sunday:</strong> By Appointment
             </address>
-            <div className="space-y-4">
-              <a 
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
                 href="https://maps.google.com/?q=123+Remodel+Street+Dallas+TX+75201"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary mr-4"
+                className="btn-primary"
               >
                 Get Directions
               </a>
-              <a 
+              <a
                 href="tel:9725558746"
                 className="btn-secondary"
               >

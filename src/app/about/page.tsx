@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 
 export default function About() {
@@ -90,9 +91,9 @@ export default function About() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-r from-gray-900 via-gray-800 to-[#0A1A2F]">
+      <section className="relative py-24" style={{ background: 'linear-gradient(to right, #111827, #1f2937, var(--deep-navy))' }}>
         <div className="absolute inset-0 bg-black/40" />
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&h=1080&fit=crop")'
@@ -129,26 +130,26 @@ export default function About() {
               </h2>
               <div className="space-y-6 text-lg text-gray-600">
                 <p>
-                  Founded in 2010 by David Rodriguez, Trinity Remodeling began with a simple mission: 
-                  to help Dallas/Fort Worth families transform their houses into dream homes. 
-                  What started as a small renovation company has grown into one of the most 
+                  Founded in 2010 by David Rodriguez, Trinity Remodeling began with a simple mission:
+                  to help Dallas/Fort Worth families transform their houses into dream homes.
+                  What started as a small renovation company has grown into one of the most
                   trusted names in DFW home remodeling.
                 </p>
                 <p>
-                  David&apos;s background in both construction and interior design uniquely positioned 
-                  him to understand that successful remodeling requires both technical expertise 
-                  and creative vision. This dual focus has been the cornerstone of our approach 
+                  David&apos;s background in both construction and interior design uniquely positioned
+                  him to understand that successful remodeling requires both technical expertise
+                  and creative vision. This dual focus has been the cornerstone of our approach
                   for over a decade.
                 </p>
                 <p>
-                  Today, with over 500 completed projects and a 98% customer satisfaction rate, 
-                  we continue to push the boundaries of what&apos;s possible in home renovation. 
-                  Every project is an opportunity to exceed expectations and create spaces that 
+                  Today, with over 500 completed projects and a 98% customer satisfaction rate,
+                  we continue to push the boundaries of what&apos;s possible in home renovation.
+                  Every project is an opportunity to exceed expectations and create spaces that
                   our clients will love for years to come.
                 </p>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -156,13 +157,13 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div 
+              <div
                 className="rounded-2xl shadow-2xl overflow-hidden h-96 bg-cover bg-center"
                 style={{
                   backgroundImage: 'url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop")'
                 }}
               />
-              <div className="absolute -bottom-8 -right-8 bg-[#2BB6C9] text-white p-6 rounded-2xl shadow-xl">
+              <div className="absolute -bottom-8 -right-8 text-white p-6 rounded-2xl shadow-xl" style={{ backgroundColor: 'var(--accent-teal)' }}>
                 <div className="text-3xl font-bold">500+</div>
                 <div className="text-sm font-medium">Projects Completed</div>
               </div>
@@ -185,7 +186,7 @@ export default function About() {
               Our <span className="gradient-text">Mission & Values</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We&apos;re driven by a passion for creating beautiful, functional spaces that enhance 
+              We&apos;re driven by a passion for creating beautiful, functional spaces that enhance
               our clients&apos; daily lives while adding lasting value to their homes.
             </p>
           </motion.div>
@@ -200,7 +201,7 @@ export default function About() {
           >
             <h3 className="text-2xl font-bold mb-4 text-gray-900">Our Mission</h3>
             <p className="text-lg text-gray-600 italic max-w-4xl mx-auto">
-              &quot;To transform DFW homes through exceptional craftsmanship, innovative design, and unparalleled customer service, 
+              &quot;To transform DFW homes through exceptional craftsmanship, innovative design, and unparalleled customer service,
               creating spaces that reflect our clients&apos; unique lifestyles while exceeding their expectations at every turn.&quot;
             </p>
           </motion.div>
@@ -230,7 +231,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Timeline - Fixed for mobile */}
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -244,7 +245,7 @@ export default function About() {
               Our <span className="gradient-text">Journey</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From humble beginnings to becoming DFW&apos;s premier remodeling company, 
+              From humble beginnings to becoming DFW&apos;s premier remodeling company,
               here are the key milestones in our story.
             </p>
           </motion.div>
@@ -253,17 +254,17 @@ export default function About() {
             {milestones.map((milestone, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className={`flex items-center mb-12 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="flex items-center mb-8"
               >
-                <div className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} max-w-lg`}>
-                  <div className="flex-shrink-0 w-16 h-16 bg-[#2BB6C9] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="flex items-center flex-row w-full max-w-2xl mx-auto">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg" style={{ backgroundColor: 'var(--accent-teal)' }}>
                     {milestone.year}
                   </div>
-                  <div className={`${index % 2 === 0 ? 'ml-6' : 'mr-6'} bg-gray-50 p-6 rounded-lg shadow-md`}>
+                  <div className="ml-6 bg-gray-50 p-6 rounded-lg shadow-md flex-1">
                     <p className="text-gray-800 font-medium">{milestone.event}</p>
                   </div>
                 </div>
@@ -287,7 +288,7 @@ export default function About() {
               Meet Our <span className="gradient-text">Team</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Our experienced professionals are passionate about bringing your vision to life 
+              Our experienced professionals are passionate about bringing your vision to life
               with expertise, creativity, and attention to detail.
             </p>
           </motion.div>
@@ -306,13 +307,13 @@ export default function About() {
                 className="text-center group"
               >
                 <div className="relative mb-6 mx-auto w-48 h-48 rounded-full overflow-hidden group-hover:scale-105 transition-transform">
-                  <div 
+                  <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url("${member.image}")` }}
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                <p className="text-[#2BB6C9] font-semibold mb-4">{member.role}</p>
+                <p className="font-semibold mb-4" style={{ color: 'var(--accent-teal)' }}>{member.role}</p>
                 <p className="text-gray-300 text-sm">{member.bio}</p>
               </motion.div>
             ))}
@@ -321,7 +322,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-[#2BB6C9]">
+      <section className="section-padding" style={{ backgroundColor: 'var(--accent-teal)' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -334,21 +335,38 @@ export default function About() {
               <span className="block">Our Expert Team?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Let&apos;s discuss your project and show you why homeowners throughout 
+              Let&apos;s discuss your project and show you why homeowners throughout
               the DFW area trust Trinity Remodeling with their most important investments.
             </p>
-            
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <a 
-                href="/contact" 
-                className="bg-white text-[#2BB6C9] hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg inline-block"
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Start Your Project Today
-              </a>
-            </motion.div>
+                <Link
+                  href="/quote"
+                  className="bg-white hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg inline-block"
+                  style={{ color: 'var(--accent-teal)' }}
+                >
+                  Get Free Quote
+                </Link>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <a
+                  href="tel:9725558746"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white px-12 py-4 rounded-lg font-semibold text-lg transition-all inline-block"
+                  onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = '#ffffff'; }}
+                >
+                  Call (972) 555-TRIN
+                </a>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>

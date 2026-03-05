@@ -56,7 +56,7 @@ export default function Home() {
     },
     {
       name: "Mike Chen",
-      location: "Frisco, TX", 
+      location: "Frisco, TX",
       text: "From design to completion, the team exceeded our expectations. Our whole home renovation was completed on time and within budget.",
       rating: 5
     },
@@ -97,7 +97,7 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-fixed"
             style={{
               backgroundImage: 'url("https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1920&h=1080&fit=crop&crop=center")'
@@ -118,10 +118,10 @@ export default function Home() {
               <span className="gradient-text block">Dream Home</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-200">
-              Premier home remodeling services in Dallas/Fort Worth. From kitchens to whole home renovations, 
+              Premier home remodeling services in Dallas/Fort Worth. From kitchens to whole home renovations,
               we bring your vision to life with exceptional craftsmanship.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -132,7 +132,7 @@ export default function Home() {
                   Get Free Quote
                 </Link>
               </motion.div>
-              
+
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -143,7 +143,7 @@ export default function Home() {
                 </Link>
               </motion.div>
             </div>
-            
+
             {/* Trust Indicators */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -152,15 +152,15 @@ export default function Home() {
               className="mt-16 flex flex-wrap justify-center gap-8 text-sm text-gray-300"
             >
               <div className="flex items-center">
-                <span className="text-[#2BB6C9] mr-2">✓</span>
+                <span style={{ color: 'var(--accent-teal)' }} className="mr-2">✓</span>
                 Licensed & Insured
               </div>
               <div className="flex items-center">
-                <span className="text-[#2BB6C9] mr-2">✓</span>
+                <span style={{ color: 'var(--accent-teal)' }} className="mr-2">✓</span>
                 15+ Years Experience
               </div>
               <div className="flex items-center">
-                <span className="text-[#2BB6C9] mr-2">✓</span>
+                <span style={{ color: 'var(--accent-teal)' }} className="mr-2">✓</span>
                 500+ Happy Customers
               </div>
             </motion.div>
@@ -202,7 +202,7 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-center"
               >
-                <div className="text-4xl lg:text-5xl font-bold text-[#2BB6C9] mb-2">
+                <div className="text-4xl lg:text-5xl font-bold mb-2" style={{ color: 'var(--accent-teal)' }}>
                   {stat.number}
                 </div>
                 <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -226,7 +226,7 @@ export default function Home() {
               Our <span className="gradient-text">Services</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From concept to completion, we provide comprehensive remodeling solutions 
+              From concept to completion, we provide comprehensive remodeling solutions
               tailored to your lifestyle and budget.
             </p>
           </motion.div>
@@ -246,7 +246,7 @@ export default function Home() {
                 className="bg-white rounded-2xl shadow-lg overflow-hidden group cursor-pointer"
               >
                 <div className="relative h-64 overflow-hidden">
-                  <div 
+                  <div
                     className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
                     style={{ backgroundImage: `url("${service.image}")` }}
                   />
@@ -258,11 +258,14 @@ export default function Home() {
                 </div>
                 <div className="p-6 sm:p-8">
                   <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                  <Link 
-                    href="/services" 
-                    className="text-[#2BB6C9] font-semibold hover:text-[#239AA9] transition-colors inline-flex items-center"
+                  <Link
+                    href="/services"
+                    className="font-semibold transition-colors inline-flex items-center"
+                    style={{ color: 'var(--accent-teal)' }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--teal-dark)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
                   >
-                    Learn More 
+                    Learn More
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -288,7 +291,7 @@ export default function Home() {
               Why Choose <span className="gradient-text">Trinity Remodeling</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience the difference with our commitment to excellence, 
+              Experience the difference with our commitment to excellence,
               local expertise, and customer satisfaction.
             </p>
           </motion.div>
@@ -331,7 +334,7 @@ export default function Home() {
               What Our <span className="gradient-text">Clients Say</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Don&apos;t just take our word for it. Here&apos;s what our satisfied customers 
+              Don&apos;t just take our word for it. Here&apos;s what our satisfied customers
               throughout the DFW area have to say.
             </p>
           </motion.div>
@@ -351,7 +354,7 @@ export default function Home() {
               >
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-[#2BB6C9]" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="w-5 h-5" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -361,7 +364,7 @@ export default function Home() {
                 </p>
                 <div>
                   <div className="font-semibold text-white">{testimonial.name}</div>
-                  <div className="text-[#2BB6C9] text-sm">{testimonial.location}</div>
+                  <div className="text-sm" style={{ color: 'var(--accent-teal)' }}>{testimonial.location}</div>
                 </div>
               </motion.div>
             ))}
@@ -370,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-[#2BB6C9]">
+      <section className="section-padding" style={{ backgroundColor: 'var(--accent-teal)' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -383,30 +386,33 @@ export default function Home() {
               <span className="block">Dream Project?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Let&apos;s discuss your vision and provide you with a detailed, 
+              Let&apos;s discuss your vision and provide you with a detailed,
               no-obligation quote for your remodeling project.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link 
-                  href="/quote" 
-                  className="bg-white text-[#2BB6C9] hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg"
+                <Link
+                  href="/quote"
+                  className="bg-white hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg inline-block"
+                  style={{ color: 'var(--accent-teal)' }}
                 >
                   Get Free Quote
                 </Link>
               </motion.div>
-              
+
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link 
-                  href="/contact" 
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#2BB6C9] px-12 py-4 rounded-lg font-semibold text-lg transition-all"
+                <Link
+                  href="/contact"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white px-12 py-4 rounded-lg font-semibold text-lg transition-all inline-block"
+                  onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = '#ffffff'; }}
                 >
                   Contact Us
                 </Link>
@@ -415,8 +421,8 @@ export default function Home() {
 
             <div className="mt-12 text-white/80">
               <p className="text-lg mb-4">Call us today for immediate assistance</p>
-              <a 
-                href="tel:9725558746" 
+              <a
+                href="tel:9725558746"
                 className="text-3xl font-bold text-white hover:text-gray-200 transition-colors"
               >
                 (972) 555-TRIN

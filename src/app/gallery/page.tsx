@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import Link from 'next/link';
 
 type Project = {
   id: number;
@@ -144,8 +145,8 @@ export default function Gallery() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showBefore, setShowBefore] = useState<{[key: number]: boolean}>({});
 
-  const filteredProjects = activeFilter === "All" 
-    ? projects 
+  const filteredProjects = activeFilter === "All"
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   const toggleBeforeAfter = (projectId: number) => {
@@ -179,9 +180,9 @@ export default function Gallery() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-r from-gray-900 via-gray-800 to-[#0A1A2F]">
+      <section className="relative py-24" style={{ background: 'linear-gradient(to right, #111827, #1f2937, var(--deep-navy))' }}>
         <div className="absolute inset-0 bg-black/40" />
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&h=1080&fit=crop")'
@@ -222,7 +223,7 @@ export default function Gallery() {
                 <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">
                   {stat.icon}
                 </div>
-                <div className="text-4xl lg:text-5xl font-bold text-[#2BB6C9] mb-2">
+                <div className="text-4xl lg:text-5xl font-bold mb-2" style={{ color: 'var(--accent-teal)' }}>
                   {stat.number}
                 </div>
                 <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -247,9 +248,10 @@ export default function Gallery() {
                 onClick={() => setActiveFilter(category)}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   activeFilter === category
-                    ? 'bg-[#2BB6C9] text-white shadow-lg'
+                    ? 'text-white shadow-lg'
                     : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md hover:shadow-lg'
                 }`}
+                style={activeFilter === category ? { backgroundColor: 'var(--accent-teal)' } : undefined}
               >
                 {category}
               </button>
@@ -282,14 +284,14 @@ export default function Gallery() {
                   onClick={() => setSelectedProject(project)}
                 >
                   <div className="relative h-64 overflow-hidden">
-                    <div 
+                    <div
                       className="absolute inset-0 bg-cover bg-center transition-all duration-500"
-                      style={{ 
+                      style={{
                         backgroundImage: `url("${showBefore[project.id] ? project.beforeImage : project.afterImage}")`
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    
+
                     {/* Before/After Toggle */}
                     <button
                       onClick={(e) => {
@@ -302,7 +304,7 @@ export default function Gallery() {
                     </button>
 
                     {/* Category Badge */}
-                    <div className="absolute top-4 left-4 bg-[#2BB6C9] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="absolute top-4 left-4 text-white px-3 py-1 rounded-full text-sm font-semibold" style={{ backgroundColor: 'var(--accent-teal)' }}>
                       {project.category}
                     </div>
 
@@ -318,10 +320,10 @@ export default function Gallery() {
 
                   <div className="p-6">
                     <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
-                    
+
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.features.slice(0, 3).map((feature, idx) => (
-                        <span 
+                        <span
                           key={idx}
                           className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs font-medium"
                         >
@@ -329,17 +331,22 @@ export default function Gallery() {
                         </span>
                       ))}
                       {project.features.length > 3 && (
-                        <span className="bg-[#d4f2f6] text-[#1a6b77] px-2 py-1 rounded text-xs font-medium">
+                        <span className="px-2 py-1 rounded text-xs font-medium" style={{ backgroundColor: '#d4f2f6', color: '#1a6b77' }}>
                           +{project.features.length - 3} more
                         </span>
                       )}
                     </div>
 
                     <div className="flex justify-between items-center">
-                      <span className="text-[#2BB6C9] font-semibold text-sm">
+                      <span className="font-semibold text-sm" style={{ color: 'var(--accent-teal)' }}>
                         Completed {project.year}
                       </span>
-                      <button className="text-[#2BB6C9] font-semibold hover:text-[#239AA9] transition-colors inline-flex items-center">
+                      <button
+                        className="font-semibold transition-colors inline-flex items-center"
+                        style={{ color: 'var(--accent-teal)' }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--teal-dark)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
+                      >
                         View Details
                         <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -368,32 +375,35 @@ export default function Gallery() {
               <span className="block gradient-text">Transformation?</span>
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Let&apos;s bring your vision to life. Schedule your free consultation today 
+              Let&apos;s bring your vision to life. Schedule your free consultation today
               and see why homeowners across DFW trust Trinity Remodeling with their dreams.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <a 
-                  href="/quote" 
-                  className="bg-[#2BB6C9] hover:bg-[#239AA9] text-white px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg"
+                <Link
+                  href="/quote"
+                  className="text-white px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg inline-block"
+                  style={{ backgroundColor: 'var(--accent-teal)' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--teal-dark)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--accent-teal)'; }}
                 >
                   Get Free Quote
-                </a>
+                </Link>
               </motion.div>
-              
+
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <a 
-                  href="/contact" 
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 px-12 py-4 rounded-lg font-semibold text-lg transition-all"
+                <a
+                  href="tel:9725558746"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 px-12 py-4 rounded-lg font-semibold text-lg transition-all inline-block"
                 >
-                  Schedule Consultation
+                  Call (972) 555-TRIN
                 </a>
               </motion.div>
             </div>
@@ -434,14 +444,14 @@ export default function Gallery() {
                 <div className="grid md:grid-cols-2 gap-4 p-6">
                   <div className="space-y-3">
                     <h4 className="font-semibold text-gray-700">Before</h4>
-                    <div 
+                    <div
                       className="h-64 bg-cover bg-center rounded-lg"
                       style={{ backgroundImage: `url("${selectedProject.beforeImage}")` }}
                     />
                   </div>
                   <div className="space-y-3">
                     <h4 className="font-semibold text-gray-700">After</h4>
-                    <div 
+                    <div
                       className="h-64 bg-cover bg-center rounded-lg"
                       style={{ backgroundImage: `url("${selectedProject.afterImage}")` }}
                     />
@@ -453,9 +463,9 @@ export default function Gallery() {
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h2 className="text-3xl font-bold font-serif mb-2">{selectedProject.title}</h2>
-                      <p className="text-[#2BB6C9] font-semibold">{selectedProject.category} Project</p>
+                      <p className="font-semibold" style={{ color: 'var(--accent-teal)' }}>{selectedProject.category} Project</p>
                     </div>
-                    <span className="bg-[#d4f2f6] text-[#1a6b77] px-3 py-1 rounded-full text-sm font-semibold">
+                    <span className="px-3 py-1 rounded-full text-sm font-semibold" style={{ backgroundColor: '#d4f2f6', color: '#1a6b77' }}>
                       {selectedProject.year}
                     </span>
                   </div>
@@ -484,9 +494,10 @@ export default function Gallery() {
                     <h4 className="font-semibold text-gray-700 mb-3">Key Features</h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.features.map((feature, idx) => (
-                        <span 
+                        <span
                           key={idx}
-                          className="bg-[#d4f2f6] text-[#1a6b77] px-3 py-1 rounded-full text-sm font-medium"
+                          className="px-3 py-1 rounded-full text-sm font-medium"
+                          style={{ backgroundColor: '#d4f2f6', color: '#1a6b77' }}
                         >
                           {feature}
                         </span>
@@ -495,18 +506,20 @@ export default function Gallery() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t">
-                    <button 
+                    <Link
+                      href="/quote"
                       onClick={() => setSelectedProject(null)}
-                      className="btn-primary flex-1"
+                      className="btn-primary flex-1 text-center"
                     >
                       Start Your Project
-                    </button>
-                    <button 
+                    </Link>
+                    <Link
+                      href="/quote"
                       onClick={() => setSelectedProject(null)}
-                      className="btn-secondary flex-1"
+                      className="btn-secondary flex-1 text-center"
                     >
                       Get Similar Quote
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

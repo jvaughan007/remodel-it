@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import MobileCTA from "@/components/MobileCTA";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,7 +17,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Trinity Remodeling - Premier Home Remodeling in Dallas/Fort Worth",
-  description: "Transform your home with Trinity Remodeling Professional kitchen, bathroom, and whole home renovations serving Dallas, Fort Worth, Plano, Frisco, and surrounding DFW areas.",
+  description: "Transform your home with Trinity Remodeling. Professional kitchen, bathroom, and whole home renovations serving Dallas, Fort Worth, Plano, Frisco, and surrounding DFW areas.",
   keywords: "home remodeling, kitchen renovation, bathroom remodel, Dallas, Fort Worth, DFW, contractor, home renovation, interior design",
   authors: [{ name: "Trinity Remodeling" }],
   openGraph: {
@@ -55,6 +56,7 @@ export default function RootLayout({
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <MobileCTA />
       </body>
     </html>
   );

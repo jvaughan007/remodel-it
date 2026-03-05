@@ -10,26 +10,26 @@ type QuoteFormData = {
   lastName: string;
   email: string;
   phone: string;
-  
+
   // Project Details
   serviceType: string;
   projectDescription: string;
   budgetRange: string;
   timeline: string;
-  
+
   // Property Info
   address: string;
   city: string;
   zipCode: string;
   propertyType: string;
   homeAge: string;
-  
+
   // Additional Info
   previousWork: string;
   designPreferences: string;
   specialRequirements: string;
   howDidYouHear: string;
-  
+
   // Preferences
   preferredContactMethod: 'email' | 'phone' | 'either';
   bestTimeToCall: string;
@@ -58,7 +58,7 @@ export default function Quote() {
 
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       console.log('Quote form submitted:', data);
@@ -91,49 +91,49 @@ export default function Quote() {
           <div className="text-6xl mb-6">🎉</div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
           <p className="text-lg text-gray-600 mb-6">
-            We&apos;ve received your quote request and our team is already reviewing the details. 
+            We&apos;ve received your quote request and our team is already reviewing the details.
             You can expect to hear from us within 24 hours with your detailed estimate.
           </p>
-          
+
           <div className="bg-[#e8f8fa] border border-[#a8e4ec] p-6 rounded-lg mb-6">
-            <h3 className="text-lg font-semibold text-[#0A1A2F] mb-2">
+            <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--deep-navy)' }}>
               What happens next?
             </h3>
-            <ul className="text-[#1a6b77] text-left space-y-2">
+            <ul className="text-left space-y-2" style={{ color: '#1a6b77' }}>
               <li className="flex items-start">
-                <span className="text-[#2BB6C9] mr-2">1.</span>
+                <span className="mr-2" style={{ color: 'var(--accent-teal)' }}>1.</span>
                 Our team reviews your project details within 2 hours
               </li>
               <li className="flex items-start">
-                <span className="text-[#2BB6C9] mr-2">2.</span>
+                <span className="mr-2" style={{ color: 'var(--accent-teal)' }}>2.</span>
                 We&apos;ll call or email you to schedule a consultation
               </li>
               <li className="flex items-start">
-                <span className="text-[#2BB6C9] mr-2">3.</span>
+                <span className="mr-2" style={{ color: 'var(--accent-teal)' }}>3.</span>
                 We visit your home to assess the project and discuss options
               </li>
               <li className="flex items-start">
-                <span className="text-[#2BB6C9] mr-2">4.</span>
+                <span className="mr-2" style={{ color: 'var(--accent-teal)' }}>4.</span>
                 You receive a detailed written estimate within 48 hours
               </li>
             </ul>
           </div>
 
-          <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => setIsSubmitted(false)}
-              className="btn-primary mr-4"
+              className="btn-primary"
             >
               Request Another Quote
             </button>
-            <a 
+            <a
               href="tel:9725558746"
-              className="btn-secondary"
+              className="btn-secondary text-center"
             >
               Call Us Now
             </a>
           </div>
-          
+
           <p className="text-sm text-gray-500 mt-6">
             For immediate assistance, call us at (972) 555-TRIN
           </p>
@@ -145,9 +145,9 @@ export default function Quote() {
   return (
     <div className="min-h-screen pt-20 bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-16 bg-gradient-to-r from-gray-900 via-gray-800 to-[#0A1A2F]">
+      <section className="relative py-16" style={{ background: 'linear-gradient(to right, #111827, #1f2937, var(--deep-navy))' }}>
         <div className="absolute inset-0 bg-black/40" />
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&h=1080&fit=crop")'
@@ -163,7 +163,7 @@ export default function Quote() {
               Get Your Free <span className="gradient-text">Quote</span>
             </h1>
             <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
-              Tell us about your project and receive a detailed estimate within 24 hours. 
+              Tell us about your project and receive a detailed estimate within 24 hours.
               No obligations, just honest pricing from DFW&apos;s trusted remodeling experts.
             </p>
           </motion.div>
@@ -182,9 +182,9 @@ export default function Quote() {
             </span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
-            <motion.div 
-              className="bg-[#2BB6C9] h-2 rounded-full transition-all duration-500 ease-out"
-              style={{ width: `${(currentStep / totalSteps) * 100}%` }}
+            <motion.div
+              className="h-2 rounded-full transition-all duration-500 ease-out"
+              style={{ width: `${(currentStep / totalSteps) * 100}%`, backgroundColor: 'var(--accent-teal)' }}
             />
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function Quote() {
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           <form onSubmit={handleSubmit(onSubmit)}>
-            
+
             {/* Step 1: Personal Information */}
             {currentStep === 1 && (
               <motion.div
@@ -219,7 +219,9 @@ export default function Quote() {
                       type="text"
                       id="firstName"
                       {...register('firstName', { required: 'First name is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                       placeholder="Your first name"
                     />
                     {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>}
@@ -233,7 +235,9 @@ export default function Quote() {
                       type="text"
                       id="lastName"
                       {...register('lastName', { required: 'Last name is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                       placeholder="Your last name"
                     />
                     {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>}
@@ -248,14 +252,16 @@ export default function Quote() {
                     <input
                       type="email"
                       id="email"
-                      {...register('email', { 
+                      {...register('email', {
                         required: 'Email is required',
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                           message: 'Invalid email address'
                         }
                       })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                       placeholder="your.email@example.com"
                     />
                     {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
@@ -269,7 +275,9 @@ export default function Quote() {
                       type="tel"
                       id="phone"
                       {...register('phone', { required: 'Phone number is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                       placeholder="(972) 555-0123"
                     />
                     {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
@@ -310,7 +318,9 @@ export default function Quote() {
                   <select
                     id="serviceType"
                     {...register('serviceType', { required: 'Please select a service type' })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                    onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                    onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                   >
                     <option value="">Select your project type</option>
                     <option value="Kitchen Remodeling">Kitchen Remodeling</option>
@@ -333,7 +343,9 @@ export default function Quote() {
                     id="projectDescription"
                     rows={5}
                     {...register('projectDescription', { required: 'Project description is required' })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none"
+                    onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                    onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     placeholder="Describe your project in detail. Include specific rooms, materials, features, and any special requirements..."
                   />
                   {errors.projectDescription && <p className="text-red-500 text-sm mt-1">{errors.projectDescription.message}</p>}
@@ -347,7 +359,9 @@ export default function Quote() {
                     <select
                       id="budgetRange"
                       {...register('budgetRange', { required: 'Please select a budget range' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     >
                       <option value="">Select your budget</option>
                       <option value="Under $15,000">Under $15,000</option>
@@ -369,7 +383,9 @@ export default function Quote() {
                     <select
                       id="timeline"
                       {...register('timeline', { required: 'Please select a timeline' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     >
                       <option value="">When would you like to start?</option>
                       <option value="ASAP">As soon as possible</option>
@@ -425,7 +441,9 @@ export default function Quote() {
                     type="text"
                     id="address"
                     {...register('address', { required: 'Address is required' })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                    onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                    onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     placeholder="123 Main Street"
                   />
                   {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address.message}</p>}
@@ -440,7 +458,9 @@ export default function Quote() {
                       type="text"
                       id="city"
                       {...register('city', { required: 'City is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                       placeholder="Dallas"
                     />
                     {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city.message}</p>}
@@ -454,7 +474,9 @@ export default function Quote() {
                       type="text"
                       id="zipCode"
                       {...register('zipCode', { required: 'ZIP code is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                       placeholder="75201"
                     />
                     {errors.zipCode && <p className="text-red-500 text-sm mt-1">{errors.zipCode.message}</p>}
@@ -469,7 +491,9 @@ export default function Quote() {
                     <select
                       id="propertyType"
                       {...register('propertyType')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     >
                       <option value="">Select property type</option>
                       <option value="Single Family Home">Single Family Home</option>
@@ -487,7 +511,9 @@ export default function Quote() {
                     <select
                       id="homeAge"
                       {...register('homeAge')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     >
                       <option value="">Select age range</option>
                       <option value="Less than 5 years">Less than 5 years</option>
@@ -542,7 +568,9 @@ export default function Quote() {
                   <select
                     id="previousWork"
                     {...register('previousWork')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                    onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                    onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                   >
                     <option value="">Select option</option>
                     <option value="This is our first project">This is our first remodeling project</option>
@@ -560,7 +588,9 @@ export default function Quote() {
                     id="designPreferences"
                     rows={3}
                     {...register('designPreferences')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none"
+                    onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                    onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     placeholder="Modern, traditional, farmhouse, contemporary, etc. Include any specific materials, colors, or features you prefer..."
                   />
                 </div>
@@ -573,7 +603,9 @@ export default function Quote() {
                     id="specialRequirements"
                     rows={3}
                     {...register('specialRequirements')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none"
+                    onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                    onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     placeholder="Accessibility needs, pet considerations, work schedule constraints, HOA requirements, etc."
                   />
                 </div>
@@ -586,7 +618,9 @@ export default function Quote() {
                     <select
                       id="howDidYouHear"
                       {...register('howDidYouHear')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     >
                       <option value="">Select option</option>
                       <option value="Google Search">Google Search</option>
@@ -607,7 +641,9 @@ export default function Quote() {
                     <select
                       id="preferredContactMethod"
                       {...register('preferredContactMethod')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                      onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                      onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                     >
                       <option value="either">Either email or phone</option>
                       <option value="email">Email preferred</option>
@@ -623,7 +659,9 @@ export default function Quote() {
                   <select
                     id="bestTimeToCall"
                     {...register('bestTimeToCall')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                    onFocus={(e) => { e.currentTarget.style.boxShadow = '0 0 0 2px var(--accent-teal)'; }}
+                    onBlur={(e) => { e.currentTarget.style.boxShadow = ''; }}
                   >
                     <option value="">Select preferred time</option>
                     <option value="Morning (8-12)">Morning (8AM-12PM)</option>
@@ -640,13 +678,14 @@ export default function Quote() {
                       type="checkbox"
                       id="scheduleConsultation"
                       {...register('schedulConsultation')}
-                      className="mt-1 w-4 h-4 text-[#2BB6C9] border-[#2BB6C9] rounded rounded focus:ring-[#2BB6C9]"
+                      className="mt-1 w-4 h-4 rounded"
+                      style={{ accentColor: 'var(--accent-teal)' }}
                     />
                     <div>
-                      <label htmlFor="scheduleConsultation" className="text-[#0A1A2F] font-medium">
+                      <label htmlFor="scheduleConsultation" className="font-medium" style={{ color: 'var(--deep-navy)' }}>
                         Schedule an in-home consultation
                       </label>
-                      <p className="text-[#1a6b77] text-sm mt-1">
+                      <p className="text-sm mt-1" style={{ color: '#1a6b77' }}>
                         Check this box to schedule a free in-home consultation where we can discuss your project in detail and provide the most accurate estimate.
                       </p>
                     </div>
@@ -671,7 +710,7 @@ export default function Quote() {
                 </div>
 
                 <p className="text-sm text-gray-500 text-center mt-6">
-                  By submitting this form, you agree to be contacted by Trinity Remodeling regarding your project. 
+                  By submitting this form, you agree to be contacted by Trinity Remodeling regarding your project.
                   We respect your privacy and will never share your information with third parties.
                 </p>
               </motion.div>
@@ -745,6 +784,19 @@ export default function Quote() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Phone CTA */}
+      <section className="py-12" style={{ backgroundColor: 'var(--deep-navy)' }}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-300 text-lg mb-3">Prefer to talk to someone directly?</p>
+          <a
+            href="tel:9725558746"
+            className="text-3xl font-bold text-white hover:text-gray-200 transition-colors"
+          >
+            Call (972) 555-TRIN
+          </a>
         </div>
       </section>
     </div>

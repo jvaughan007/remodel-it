@@ -42,7 +42,7 @@ export default function Services() {
     },
     {
       title: "Bathroom Renovation",
-      slug: "bathroom-renovation", 
+      slug: "bathroom-renovation",
       shortDesc: "Create your personal spa retreat",
       fullDesc: "Transform your bathroom into a luxurious retreat with our comprehensive renovation services. Whether you want a spa-like master suite or a functional family bathroom, we deliver exceptional results.",
       image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop",
@@ -139,7 +139,7 @@ export default function Services() {
       description: "We meet with you to discuss your vision, needs, and budget for your remodeling project."
     },
     {
-      step: "2", 
+      step: "2",
       title: "Design & Planning",
       description: "Our team creates detailed plans and 3D renderings to visualize your new space."
     },
@@ -163,9 +163,9 @@ export default function Services() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-r from-gray-900 via-gray-800 to-[#0A1A2F]">
+      <section className="relative py-24" style={{ background: 'linear-gradient(to right, #111827, #1f2937, var(--deep-navy))' }}>
         <div className="absolute inset-0 bg-black/40" />
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&h=1080&fit=crop")'
@@ -181,7 +181,7 @@ export default function Services() {
               Our <span className="gradient-text">Services</span>
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200">
-              Comprehensive remodeling solutions for every room and every budget, 
+              Comprehensive remodeling solutions for every room and every budget,
               backed by 15+ years of experience in the DFW area.
             </p>
           </motion.div>
@@ -206,12 +206,12 @@ export default function Services() {
                 onClick={() => setActiveService(index)}
               >
                 <div className="relative h-64 overflow-hidden">
-                  <div 
+                  <div
                     className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
                     style={{ backgroundImage: `url("${service.image}")` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
-                  <div className="absolute top-4 right-4 bg-[#2BB6C9] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="absolute top-4 right-4 text-white px-3 py-1 rounded-full text-sm font-semibold" style={{ backgroundColor: 'var(--accent-teal)' }}>
                     {service.priceRange}
                   </div>
                   <div className="absolute bottom-4 left-4 text-white">
@@ -225,15 +225,20 @@ export default function Services() {
                   <ul className="space-y-2 mb-6">
                     {service.features.slice(0, 3).map((feature, idx) => (
                       <li key={idx} className="flex items-center text-sm text-gray-500">
-                        <svg className="w-4 h-4 mr-2 text-[#2BB6C9]" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 mr-2" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <button className="text-[#2BB6C9] font-semibold hover:text-[#239AA9] transition-colors inline-flex items-center">
-                    Learn More 
+                  <button
+                    className="font-semibold transition-colors inline-flex items-center"
+                    style={{ color: 'var(--accent-teal)' }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--teal-dark)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
+                  >
+                    Learn More
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -262,16 +267,16 @@ export default function Services() {
               <p className="text-lg text-gray-600 mb-8">
                 {services[activeService].fullDesc}
               </p>
-              
+
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="bg-white p-4 rounded-lg shadow-md">
-                  <div className="text-2xl font-bold text-[#2BB6C9]">
+                  <div className="text-2xl font-bold" style={{ color: 'var(--accent-teal)' }}>
                     {services[activeService].priceRange}
                   </div>
                   <div className="text-sm text-gray-500">Investment Range</div>
                 </div>
                 <div className="bg-white p-4 rounded-lg shadow-md">
-                  <div className="text-2xl font-bold text-[#2BB6C9]">
+                  <div className="text-2xl font-bold" style={{ color: 'var(--accent-teal)' }}>
                     {services[activeService].timeline}
                   </div>
                   <div className="text-sm text-gray-500">Typical Timeline</div>
@@ -282,7 +287,7 @@ export default function Services() {
               <ul className="space-y-2 mb-8">
                 {services[activeService].features.map((feature, idx) => (
                   <li key={idx} className="flex items-center text-gray-600">
-                    <svg className="w-5 h-5 mr-3 text-[#2BB6C9]" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 mr-3" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     {feature}
@@ -294,7 +299,7 @@ export default function Services() {
                 Get Free Quote for This Service
               </Link>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -302,7 +307,7 @@ export default function Services() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div 
+              <div
                 className="rounded-2xl shadow-2xl overflow-hidden h-96 bg-cover bg-center"
                 style={{ backgroundImage: `url("${services[activeService].image}")` }}
               />
@@ -311,7 +316,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process Section - Fixed for mobile */}
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -325,7 +330,7 @@ export default function Services() {
               Our <span className="gradient-text">Process</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From initial consultation to final walkthrough, we ensure a smooth, 
+              From initial consultation to final walkthrough, we ensure a smooth,
               transparent process that keeps you informed every step of the way.
             </p>
           </motion.div>
@@ -334,17 +339,17 @@ export default function Services() {
             {processSteps.map((process, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className={`flex items-center mb-12 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="flex items-center mb-8"
               >
-                <div className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} max-w-2xl`}>
-                  <div className="flex-shrink-0 w-16 h-16 bg-[#2BB6C9] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                <div className="flex items-center flex-row w-full max-w-2xl mx-auto">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-xl" style={{ backgroundColor: 'var(--accent-teal)' }}>
                     {process.step}
                   </div>
-                  <div className={`${index % 2 === 0 ? 'ml-8' : 'mr-8'} bg-gray-50 p-6 rounded-xl shadow-md`}>
+                  <div className="ml-6 bg-gray-50 p-6 rounded-xl shadow-md flex-1">
                     <h3 className="text-xl font-bold mb-2 text-gray-900">{process.title}</h3>
                     <p className="text-gray-600">{process.description}</p>
                   </div>
@@ -368,10 +373,10 @@ export default function Services() {
               Proudly Serving the <span className="gradient-text">DFW Area</span>
             </h2>
             <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-              We provide our comprehensive remodeling services throughout the Dallas/Fort Worth metroplex, 
+              We provide our comprehensive remodeling services throughout the Dallas/Fort Worth metroplex,
               with deep knowledge of local building codes and architectural styles.
             </p>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
               {['Dallas', 'Fort Worth', 'Plano', 'Frisco', 'McKinney', 'Arlington', 'Irving', 'Southlake', 'Colleyville', 'Grapevine', 'Carrollton', 'Richardson', 'Garland', 'Mesquite', 'Denton'].map((city, index) => (
                 <motion.div
@@ -380,13 +385,16 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-gray-800 p-4 rounded-lg hover:bg-[#2BB6C9] transition-colors cursor-pointer"
+                  className="bg-gray-800 p-4 rounded-lg transition-colors cursor-pointer"
+                  style={{ transition: 'background-color 0.3s' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--accent-teal)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = ''; }}
                 >
                   <span className="font-medium">{city}</span>
                 </motion.div>
               ))}
             </div>
-            
+
             <p className="text-gray-400 mt-8">
               And surrounding communities throughout the DFW metropolitan area
             </p>
@@ -395,7 +403,7 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-[#2BB6C9]">
+      <section className="section-padding" style={{ backgroundColor: 'var(--accent-teal)' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -407,33 +415,36 @@ export default function Services() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Contact us today for a free consultation and detailed quote for your remodeling project. 
+              Contact us today for a free consultation and detailed quote for your remodeling project.
               Let&apos;s bring your dream home to life!
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link 
-                  href="/quote" 
-                  className="bg-white text-[#2BB6C9] hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg"
+                <Link
+                  href="/quote"
+                  className="bg-white hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg inline-block"
+                  style={{ color: 'var(--accent-teal)' }}
                 >
                   Get Free Quote
                 </Link>
               </motion.div>
-              
+
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link 
-                  href="/contact" 
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#2BB6C9] px-12 py-4 rounded-lg font-semibold text-lg transition-all"
+                <a
+                  href="tel:9725558746"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white px-12 py-4 rounded-lg font-semibold text-lg transition-all inline-block"
+                  onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = '#ffffff'; }}
                 >
-                  Contact Us
-                </Link>
+                  Call (972) 555-TRIN
+                </a>
               </motion.div>
             </div>
           </motion.div>

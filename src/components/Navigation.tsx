@@ -49,25 +49,25 @@ const Navigation = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem 0' }}>
           {/* Logo */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
-            <Image 
-              src="/logo-icon.png" 
-              alt="Trinity Remodeling" 
-              width={48} 
-              height={48} 
-              style={{ borderRadius: '50%', objectFit: 'cover', width: '48px', height: '48px' }} 
+            <Image
+              src="/logo-icon.png"
+              alt="Trinity Remodeling"
+              width={48}
+              height={48}
+              style={{ objectFit: 'contain', width: '48px', height: '48px' }}
             />
-            <span style={{ 
+            <span style={{
               fontFamily: 'var(--font-playfair), serif',
-              fontSize: '1.25rem', 
-              fontWeight: 700, 
-              color: scrolled ? '#0A1A2F' : '#ffffff' 
+              fontSize: '1.25rem',
+              fontWeight: 700,
+              color: scrolled ? 'var(--deep-navy)' : '#ffffff'
             }}>
               Trinity Remodeling
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="hidden md:flex">
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -76,16 +76,16 @@ const Navigation = () => {
                   position: 'relative',
                   fontWeight: 500,
                   textDecoration: 'none',
-                  color: pathname === item.href 
-                    ? '#2BB6C9' 
+                  color: pathname === item.href
+                    ? 'var(--accent-teal)'
                     : scrolled ? '#1f2937' : '#ffffff',
                   transition: 'color 0.2s',
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = '#2BB6C9'; }}
-                onMouseLeave={(e) => { 
-                  e.currentTarget.style.color = pathname === item.href 
-                    ? '#2BB6C9' 
-                    : scrolled ? '#1f2937' : '#ffffff'; 
+                onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = pathname === item.href
+                    ? 'var(--accent-teal)'
+                    : scrolled ? '#1f2937' : '#ffffff';
                 }}
               >
                 {item.label}
@@ -98,13 +98,32 @@ const Navigation = () => {
                       left: 0,
                       right: 0,
                       height: '2px',
-                      backgroundColor: '#2BB6C9',
+                      backgroundColor: 'var(--accent-teal)',
                     }}
                   />
                 )}
               </Link>
             ))}
-            <Link href="/quote" className="btn-primary" style={{ marginLeft: '1rem' }}>
+            <a
+              href="tel:9725558746"
+              style={{
+                fontWeight: 600,
+                textDecoration: 'none',
+                color: scrolled ? 'var(--deep-navy)' : '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.375rem',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = scrolled ? 'var(--deep-navy)' : '#ffffff'; }}
+            >
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+              </svg>
+              (972) 555-TRIN
+            </a>
+            <Link href="/quote" className="btn-primary">
               Free Quote
             </Link>
           </div>
@@ -182,7 +201,7 @@ const Navigation = () => {
                       style={{
                         display: 'block',
                         padding: '0.5rem 1rem',
-                        color: pathname === item.href ? '#2BB6C9' : '#1f2937',
+                        color: pathname === item.href ? 'var(--accent-teal)' : '#1f2937',
                         fontWeight: pathname === item.href ? 600 : 400,
                         textDecoration: 'none',
                       }}
@@ -195,6 +214,31 @@ const Navigation = () => {
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: navItems.length * 0.1 }}
+                  style={{ padding: '0.5rem 1rem' }}
+                >
+                  <a
+                    href="tel:9725558746"
+                    onClick={() => setIsOpen(false)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      padding: '0.5rem 0',
+                      color: 'var(--deep-navy)',
+                      fontWeight: 600,
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                    </svg>
+                    (972) 555-TRIN
+                  </a>
+                </motion.div>
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: (navItems.length + 1) * 0.1 }}
                   style={{ padding: '0.5rem 1rem' }}
                 >
                   <Link
