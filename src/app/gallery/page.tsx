@@ -222,7 +222,7 @@ export default function Gallery() {
                 <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">
                   {stat.icon}
                 </div>
-                <div className="text-4xl lg:text-5xl font-bold text-accent-teal mb-2">
+                <div className="text-4xl lg:text-5xl font-bold text-[#2BB6C9] mb-2">
                   {stat.number}
                 </div>
                 <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -247,7 +247,7 @@ export default function Gallery() {
                 onClick={() => setActiveFilter(category)}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   activeFilter === category
-                    ? 'bg-accent-teal text-white shadow-lg'
+                    ? 'bg-[#2BB6C9] text-white shadow-lg'
                     : 'bg-white text-gray-600 hover:bg-gray-100 shadow-md hover:shadow-lg'
                 }`}
               >
@@ -302,7 +302,7 @@ export default function Gallery() {
                     </button>
 
                     {/* Category Badge */}
-                    <div className="absolute top-4 left-4 bg-accent-teal text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="absolute top-4 left-4 bg-[#2BB6C9] text-white px-3 py-1 rounded-full text-sm font-semibold">
                       {project.category}
                     </div>
 
@@ -336,10 +336,10 @@ export default function Gallery() {
                     </div>
 
                     <div className="flex justify-between items-center">
-                      <span className="text-accent-teal font-semibold text-sm">
+                      <span className="text-[#2BB6C9] font-semibold text-sm">
                         Completed {project.year}
                       </span>
-                      <button className="text-accent-teal font-semibold hover:text-teal-dark transition-colors inline-flex items-center">
+                      <button className="text-[#2BB6C9] font-semibold hover:text-[#239AA9] transition-colors inline-flex items-center">
                         View Details
                         <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -379,7 +379,7 @@ export default function Gallery() {
               >
                 <a 
                   href="/quote" 
-                  className="bg-accent-teal hover:bg-teal-dark text-white px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg"
+                  className="bg-[#2BB6C9] hover:bg-[#239AA9] text-white px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg"
                 >
                   Get Free Quote
                 </a>
@@ -453,7 +453,7 @@ export default function Gallery() {
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h2 className="text-3xl font-bold font-serif mb-2">{selectedProject.title}</h2>
-                      <p className="text-accent-teal font-semibold">{selectedProject.category} Project</p>
+                      <p className="text-[#2BB6C9] font-semibold">{selectedProject.category} Project</p>
                     </div>
                     <span className="bg-[#d4f2f6] text-[#1a6b77] px-3 py-1 rounded-full text-sm font-semibold">
                       {selectedProject.year}

@@ -101,19 +101,19 @@ export default function Quote() {
             </h3>
             <ul className="text-[#1a6b77] text-left space-y-2">
               <li className="flex items-start">
-                <span className="text-accent-teal mr-2">1.</span>
+                <span className="text-[#2BB6C9] mr-2">1.</span>
                 Our team reviews your project details within 2 hours
               </li>
               <li className="flex items-start">
-                <span className="text-accent-teal mr-2">2.</span>
+                <span className="text-[#2BB6C9] mr-2">2.</span>
                 We&apos;ll call or email you to schedule a consultation
               </li>
               <li className="flex items-start">
-                <span className="text-accent-teal mr-2">3.</span>
+                <span className="text-[#2BB6C9] mr-2">3.</span>
                 We visit your home to assess the project and discuss options
               </li>
               <li className="flex items-start">
-                <span className="text-accent-teal mr-2">4.</span>
+                <span className="text-[#2BB6C9] mr-2">4.</span>
                 You receive a detailed written estimate within 48 hours
               </li>
             </ul>
@@ -183,7 +183,7 @@ export default function Quote() {
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
             <motion.div 
-              className="bg-accent-teal h-2 rounded-full transition-all duration-500 ease-out"
+              className="bg-[#2BB6C9] h-2 rounded-full transition-all duration-500 ease-out"
               style={{ width: `${(currentStep / totalSteps) * 100}%` }}
             />
           </div>
@@ -219,7 +219,7 @@ export default function Quote() {
                       type="text"
                       id="firstName"
                       {...register('firstName', { required: 'First name is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                       placeholder="Your first name"
                     />
                     {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>}
@@ -233,7 +233,7 @@ export default function Quote() {
                       type="text"
                       id="lastName"
                       {...register('lastName', { required: 'Last name is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                       placeholder="Your last name"
                     />
                     {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>}
@@ -255,7 +255,7 @@ export default function Quote() {
                           message: 'Invalid email address'
                         }
                       })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                       placeholder="your.email@example.com"
                     />
                     {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
@@ -269,7 +269,7 @@ export default function Quote() {
                       type="tel"
                       id="phone"
                       {...register('phone', { required: 'Phone number is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                       placeholder="(972) 555-0123"
                     />
                     {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
@@ -310,7 +310,7 @@ export default function Quote() {
                   <select
                     id="serviceType"
                     {...register('serviceType', { required: 'Please select a service type' })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                   >
                     <option value="">Select your project type</option>
                     <option value="Kitchen Remodeling">Kitchen Remodeling</option>
@@ -333,7 +333,7 @@ export default function Quote() {
                     id="projectDescription"
                     rows={5}
                     {...register('projectDescription', { required: 'Project description is required' })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all resize-none"
                     placeholder="Describe your project in detail. Include specific rooms, materials, features, and any special requirements..."
                   />
                   {errors.projectDescription && <p className="text-red-500 text-sm mt-1">{errors.projectDescription.message}</p>}
@@ -347,7 +347,7 @@ export default function Quote() {
                     <select
                       id="budgetRange"
                       {...register('budgetRange', { required: 'Please select a budget range' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                     >
                       <option value="">Select your budget</option>
                       <option value="Under $15,000">Under $15,000</option>
@@ -369,7 +369,7 @@ export default function Quote() {
                     <select
                       id="timeline"
                       {...register('timeline', { required: 'Please select a timeline' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                     >
                       <option value="">When would you like to start?</option>
                       <option value="ASAP">As soon as possible</option>
@@ -425,7 +425,7 @@ export default function Quote() {
                     type="text"
                     id="address"
                     {...register('address', { required: 'Address is required' })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                     placeholder="123 Main Street"
                   />
                   {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address.message}</p>}
@@ -440,7 +440,7 @@ export default function Quote() {
                       type="text"
                       id="city"
                       {...register('city', { required: 'City is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                       placeholder="Dallas"
                     />
                     {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city.message}</p>}
@@ -454,7 +454,7 @@ export default function Quote() {
                       type="text"
                       id="zipCode"
                       {...register('zipCode', { required: 'ZIP code is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                       placeholder="75201"
                     />
                     {errors.zipCode && <p className="text-red-500 text-sm mt-1">{errors.zipCode.message}</p>}
@@ -469,7 +469,7 @@ export default function Quote() {
                     <select
                       id="propertyType"
                       {...register('propertyType')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                     >
                       <option value="">Select property type</option>
                       <option value="Single Family Home">Single Family Home</option>
@@ -487,7 +487,7 @@ export default function Quote() {
                     <select
                       id="homeAge"
                       {...register('homeAge')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                     >
                       <option value="">Select age range</option>
                       <option value="Less than 5 years">Less than 5 years</option>
@@ -542,7 +542,7 @@ export default function Quote() {
                   <select
                     id="previousWork"
                     {...register('previousWork')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                   >
                     <option value="">Select option</option>
                     <option value="This is our first project">This is our first remodeling project</option>
@@ -560,7 +560,7 @@ export default function Quote() {
                     id="designPreferences"
                     rows={3}
                     {...register('designPreferences')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all resize-none"
                     placeholder="Modern, traditional, farmhouse, contemporary, etc. Include any specific materials, colors, or features you prefer..."
                   />
                 </div>
@@ -573,7 +573,7 @@ export default function Quote() {
                     id="specialRequirements"
                     rows={3}
                     {...register('specialRequirements')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all resize-none"
                     placeholder="Accessibility needs, pet considerations, work schedule constraints, HOA requirements, etc."
                   />
                 </div>
@@ -586,7 +586,7 @@ export default function Quote() {
                     <select
                       id="howDidYouHear"
                       {...register('howDidYouHear')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                     >
                       <option value="">Select option</option>
                       <option value="Google Search">Google Search</option>
@@ -607,7 +607,7 @@ export default function Quote() {
                     <select
                       id="preferredContactMethod"
                       {...register('preferredContactMethod')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                     >
                       <option value="either">Either email or phone</option>
                       <option value="email">Email preferred</option>
@@ -623,7 +623,7 @@ export default function Quote() {
                   <select
                     id="bestTimeToCall"
                     {...register('bestTimeToCall')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                   >
                     <option value="">Select preferred time</option>
                     <option value="Morning (8-12)">Morning (8AM-12PM)</option>
@@ -640,7 +640,7 @@ export default function Quote() {
                       type="checkbox"
                       id="scheduleConsultation"
                       {...register('schedulConsultation')}
-                      className="mt-1 w-4 h-4 text-accent-teal border-accent-teal rounded rounded focus:ring-accent-teal"
+                      className="mt-1 w-4 h-4 text-[#2BB6C9] border-[#2BB6C9] rounded rounded focus:ring-[#2BB6C9]"
                     />
                     <div>
                       <label htmlFor="scheduleConsultation" className="text-[#0A1A2F] font-medium">

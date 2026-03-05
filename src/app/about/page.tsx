@@ -162,7 +162,7 @@ export default function About() {
                   backgroundImage: 'url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop")'
                 }}
               />
-              <div className="absolute -bottom-8 -right-8 bg-accent-teal text-white p-6 rounded-2xl shadow-xl">
+              <div className="absolute -bottom-8 -right-8 bg-[#2BB6C9] text-white p-6 rounded-2xl shadow-xl">
                 <div className="text-3xl font-bold">500+</div>
                 <div className="text-sm font-medium">Projects Completed</div>
               </div>
@@ -260,7 +260,7 @@ export default function About() {
                 className={`flex items-center mb-12 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
               >
                 <div className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} max-w-lg`}>
-                  <div className="flex-shrink-0 w-16 h-16 bg-accent-teal rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  <div className="flex-shrink-0 w-16 h-16 bg-[#2BB6C9] rounded-full flex items-center justify-center text-white font-bold text-lg">
                     {milestone.year}
                   </div>
                   <div className={`${index % 2 === 0 ? 'ml-6' : 'mr-6'} bg-gray-50 p-6 rounded-lg shadow-md`}>
@@ -312,7 +312,7 @@ export default function About() {
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                <p className="text-accent-teal font-semibold mb-4">{member.role}</p>
+                <p className="text-[#2BB6C9] font-semibold mb-4">{member.role}</p>
                 <p className="text-gray-300 text-sm">{member.bio}</p>
               </motion.div>
             ))}
@@ -321,7 +321,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-accent-teal">
+      <section className="section-padding bg-[#2BB6C9]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -344,7 +344,7 @@ export default function About() {
             >
               <a 
                 href="/contact" 
-                className="bg-white text-accent-teal hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg inline-block"
+                className="bg-white text-[#2BB6C9] hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg inline-block"
               >
                 Start Your Project Today
               </a>

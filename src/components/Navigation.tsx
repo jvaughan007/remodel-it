@@ -58,9 +58,9 @@ const Navigation = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative font-medium transition-colors hover:text-accent-teal ${
+                className={`relative font-medium transition-colors hover:text-[#2BB6C9] ${
                   pathname === item.href 
-                    ? 'text-accent-teal' 
+                    ? 'text-[#2BB6C9]' 
                     : scrolled ? 'text-gray-900' : 'text-white'
                 }`}
               >
@@ -68,7 +68,7 @@ const Navigation = () => {
                 {pathname === item.href && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-teal"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#2BB6C9]"
                   />
                 )}
               </Link>
@@ -126,8 +126,8 @@ const Navigation = () => {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block px-4 py-2 text-gray-900 hover:text-accent-teal transition-colors ${
-                        pathname === item.href ? 'text-accent-teal font-semibold' : ''
+                      className={`block px-4 py-2 text-gray-900 hover:text-[#2BB6C9] transition-colors ${
+                        pathname === item.href ? 'text-[#2BB6C9] font-semibold' : ''
                       }`}
                     >
                       {item.label}

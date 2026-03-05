@@ -70,11 +70,11 @@ button, a, input, textarea, select {
 
 /* Custom button styles */
 .btn-primary {
-  @apply bg-accent-teal hover:bg-teal-dark text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+  @apply bg-[#2BB6C9] hover:bg-[#239AA9] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
 }
 
 .btn-secondary {
-  @apply bg-transparent border-2 border-accent-teal text-accent-teal hover:bg-accent-teal hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300;
+  @apply bg-transparent border-2 border-[#2BB6C9] text-[#2BB6C9] hover:bg-[#2BB6C9] hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300;
 }
 
 /* Gradient text */

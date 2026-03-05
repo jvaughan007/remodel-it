@@ -172,7 +172,7 @@ export default function Contact() {
                       type="text"
                       id="name"
                       {...register('name', { required: 'Name is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                       placeholder="Your full name"
                     />
                     {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
@@ -192,7 +192,7 @@ export default function Contact() {
                           message: 'Invalid email address'
                         }
                       })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                       placeholder="your.email@example.com"
                     />
                     {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
@@ -209,7 +209,7 @@ export default function Contact() {
                       type="tel"
                       id="phone"
                       {...register('phone')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                       placeholder="(972) 555-0123"
                     />
                   </div>
@@ -221,7 +221,7 @@ export default function Contact() {
                     <select
                       id="subject"
                       {...register('subject', { required: 'Please select a subject' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                     >
                       <option value="">Select a subject</option>
                       <option value="Kitchen Remodeling">Kitchen Remodeling</option>
@@ -246,7 +246,7 @@ export default function Contact() {
                     <select
                       id="preferredContact"
                       {...register('preferredContact')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                     >
                       <option value="either">Either email or phone</option>
                       <option value="email">Email preferred</option>
@@ -261,7 +261,7 @@ export default function Contact() {
                     <select
                       id="bestTime"
                       {...register('bestTime')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all"
                     >
                       <option value="">Anytime</option>
                       <option value="Morning (8-12)">Morning (8AM-12PM)</option>
@@ -281,7 +281,7 @@ export default function Contact() {
                     id="message"
                     rows={6}
                     {...register('message', { required: 'Message is required' })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2BB6C9] focus:border-transparent transition-all resize-none"
                     placeholder="Tell us about your project, timeline, budget, and any specific requirements..."
                   />
                   {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
@@ -347,7 +347,7 @@ export default function Contact() {
                         {info.action ? (
                           <a 
                             href={info.action}
-                            className="text-accent-teal hover:text-teal-dark font-medium"
+                            className="text-[#2BB6C9] hover:text-[#239AA9] font-medium"
                           >
                             {info.details}
                           </a>
@@ -377,7 +377,7 @@ export default function Contact() {
                 </p>
                 <a 
                   href="tel:9725558746"
-                  className="text-2xl font-bold text-teal-dark hover:text-[#0A1A2F] transition-colors"
+                  className="text-2xl font-bold text-[#239AA9] hover:text-[#0A1A2F] transition-colors"
                 >
                   (972) 555-TRIN
                 </a>

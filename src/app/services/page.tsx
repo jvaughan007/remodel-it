@@ -211,7 +211,7 @@ export default function Services() {
                     style={{ backgroundImage: `url("${service.image}")` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
-                  <div className="absolute top-4 right-4 bg-accent-teal text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="absolute top-4 right-4 bg-[#2BB6C9] text-white px-3 py-1 rounded-full text-sm font-semibold">
                     {service.priceRange}
                   </div>
                   <div className="absolute bottom-4 left-4 text-white">
@@ -225,14 +225,14 @@ export default function Services() {
                   <ul className="space-y-2 mb-6">
                     {service.features.slice(0, 3).map((feature, idx) => (
                       <li key={idx} className="flex items-center text-sm text-gray-500">
-                        <svg className="w-4 h-4 mr-2 text-accent-teal" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4 mr-2 text-[#2BB6C9]" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <button className="text-accent-teal font-semibold hover:text-teal-dark transition-colors inline-flex items-center">
+                  <button className="text-[#2BB6C9] font-semibold hover:text-[#239AA9] transition-colors inline-flex items-center">
                     Learn More 
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -265,13 +265,13 @@ export default function Services() {
               
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="bg-white p-4 rounded-lg shadow-md">
-                  <div className="text-2xl font-bold text-accent-teal">
+                  <div className="text-2xl font-bold text-[#2BB6C9]">
                     {services[activeService].priceRange}
                   </div>
                   <div className="text-sm text-gray-500">Investment Range</div>
                 </div>
                 <div className="bg-white p-4 rounded-lg shadow-md">
-                  <div className="text-2xl font-bold text-accent-teal">
+                  <div className="text-2xl font-bold text-[#2BB6C9]">
                     {services[activeService].timeline}
                   </div>
                   <div className="text-sm text-gray-500">Typical Timeline</div>
@@ -282,7 +282,7 @@ export default function Services() {
               <ul className="space-y-2 mb-8">
                 {services[activeService].features.map((feature, idx) => (
                   <li key={idx} className="flex items-center text-gray-600">
-                    <svg className="w-5 h-5 mr-3 text-accent-teal" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-5 h-5 mr-3 text-[#2BB6C9]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     {feature}
@@ -341,7 +341,7 @@ export default function Services() {
                 className={`flex items-center mb-12 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
               >
                 <div className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} max-w-2xl`}>
-                  <div className="flex-shrink-0 w-16 h-16 bg-accent-teal rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  <div className="flex-shrink-0 w-16 h-16 bg-[#2BB6C9] rounded-full flex items-center justify-center text-white font-bold text-xl">
                     {process.step}
                   </div>
                   <div className={`${index % 2 === 0 ? 'ml-8' : 'mr-8'} bg-gray-50 p-6 rounded-xl shadow-md`}>
@@ -380,7 +380,7 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-gray-800 p-4 rounded-lg hover:bg-accent-teal transition-colors cursor-pointer"
+                  className="bg-gray-800 p-4 rounded-lg hover:bg-[#2BB6C9] transition-colors cursor-pointer"
                 >
                   <span className="font-medium">{city}</span>
                 </motion.div>
@@ -395,7 +395,7 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-accent-teal">
+      <section className="section-padding bg-[#2BB6C9]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -418,7 +418,7 @@ export default function Services() {
               >
                 <Link 
                   href="/quote" 
-                  className="bg-white text-accent-teal hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg"
+                  className="bg-white text-[#2BB6C9] hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg"
                 >
                   Get Free Quote
                 </Link>
@@ -430,7 +430,7 @@ export default function Services() {
               >
                 <Link 
                   href="/contact" 
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-accent-teal px-12 py-4 rounded-lg font-semibold text-lg transition-all"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#2BB6C9] px-12 py-4 rounded-lg font-semibold text-lg transition-all"
                 >
                   Contact Us
                 </Link>
