@@ -42,18 +42,18 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center" style={{ gap: '0.5rem' }}>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center space-x-2"
+              className="flex items-center" style={{ gap: '0.5rem' }}
             >
-              <Image src="/logo.jpg" alt="Trinity Remodeling" width={40} height={40} className="rounded" />
-              <span className="gradient-text font-serif text-2xl font-bold">Trinity Remodeling</span>
+              <Image src="/logo-icon.png" alt="Trinity Remodeling" width={44} height={44} className="rounded-full" style={{ borderRadius: '50%' }} />
+              <span className={`font-serif text-xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>Trinity Remodeling</span>
             </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center" style={{ gap: '2rem' }}>
             {navItems.map((item) => (
               <Link
                 key={item.href}

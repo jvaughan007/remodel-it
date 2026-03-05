@@ -79,7 +79,7 @@ button, a, input, textarea, select {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #2BB6C9, #0A1A2F);
+  background: linear-gradient(135deg, #2BB6C9, #5DD8E8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
