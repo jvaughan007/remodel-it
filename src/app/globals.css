@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+}
+
 :root {
   --deep-navy: #0A1A2F;
-  --steel-gray: #7E770F;
+  --steel-gray: #71797E;
   --accent-teal: #2BB6C9;
   --teal-dark: #239AA9;
   --soft-white: #F5F5F5;
+  --teal-light-bg: #e8f8fa;
+  --teal-light-border: #a8e4ec;
+  --teal-light-text: #1a6b77;
+  --teal-badge-bg: #d4f2f6;
 }
 
 * {
@@ -16,6 +24,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -42,9 +51,9 @@ body {
   background: var(--teal-dark);
 }
 
-/* Smooth transitions for all interactive elements */
+/* Smooth transitions for interactive elements */
 button, a, input, textarea, select {
-  transition: all 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 /* Custom button styles */
@@ -55,12 +64,11 @@ button, a, input, textarea, select {
   padding: 0.75rem 2rem;
   border-radius: 0.5rem;
   font-weight: 600;
-  transition: all 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
 .btn-primary:hover {
   background-color: var(--teal-dark);
-  transform: scale(1.05);
   box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
 
@@ -72,7 +80,7 @@ button, a, input, textarea, select {
   padding: 0.75rem 2rem;
   border-radius: 0.5rem;
   font-weight: 600;
-  transition: all 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 .btn-secondary:hover {
   background-color: var(--accent-teal);
@@ -102,6 +110,13 @@ button, a, input, textarea, select {
   }
 }
 
+/* Fix bg-fixed on iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .bg-fixed {
+    background-attachment: scroll !important;
+  }
+}
+
 /* Sticky Mobile CTA */
 .mobile-cta {
   position: fixed;
@@ -119,6 +134,11 @@ button, a, input, textarea, select {
 }
 .mobile-cta.visible {
   transform: translateY(0);
+}
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4rem;
+  }
 }
 @media (min-width: 768px) {
   .mobile-cta {

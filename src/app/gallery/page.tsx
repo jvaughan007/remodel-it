@@ -331,7 +331,7 @@ export default function Gallery() {
                         </span>
                       ))}
                       {project.features.length > 3 && (
-                        <span className="px-2 py-1 rounded text-xs font-medium" style={{ backgroundColor: '#d4f2f6', color: '#1a6b77' }}>
+                        <span className="px-2 py-1 rounded text-xs font-medium" style={{ backgroundColor: 'var(--teal-badge-bg)', color: 'var(--teal-light-text)' }}>
                           +{project.features.length - 3} more
                         </span>
                       )}
@@ -465,7 +465,7 @@ export default function Gallery() {
                       <h2 className="text-3xl font-bold font-serif mb-2">{selectedProject.title}</h2>
                       <p className="font-semibold" style={{ color: 'var(--accent-teal)' }}>{selectedProject.category} Project</p>
                     </div>
-                    <span className="px-3 py-1 rounded-full text-sm font-semibold" style={{ backgroundColor: '#d4f2f6', color: '#1a6b77' }}>
+                    <span className="px-3 py-1 rounded-full text-sm font-semibold" style={{ backgroundColor: 'var(--teal-badge-bg)', color: 'var(--teal-light-text)' }}>
                       {selectedProject.year}
                     </span>
                   </div>
@@ -497,7 +497,7 @@ export default function Gallery() {
                         <span
                           key={idx}
                           className="px-3 py-1 rounded-full text-sm font-medium"
-                          style={{ backgroundColor: '#d4f2f6', color: '#1a6b77' }}
+                          style={{ backgroundColor: 'var(--teal-badge-bg)', color: 'var(--teal-light-text)' }}
                         >
                           {feature}
                         </span>

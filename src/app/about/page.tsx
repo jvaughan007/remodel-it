@@ -155,7 +155,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative mb-8"
             >
               <div
                 className="rounded-2xl shadow-2xl overflow-hidden h-96 bg-cover bg-center"
@@ -163,7 +163,7 @@ export default function About() {
                   backgroundImage: 'url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop")'
                 }}
               />
-              <div className="absolute -bottom-8 -right-8 text-white p-6 rounded-2xl shadow-xl" style={{ backgroundColor: 'var(--accent-teal)' }}>
+              <div className="absolute -bottom-6 right-4 text-white p-6 rounded-2xl shadow-xl" style={{ backgroundColor: 'var(--accent-teal)' }}>
                 <div className="text-3xl font-bold">500+</div>
                 <div className="text-sm font-medium">Projects Completed</div>
               </div>

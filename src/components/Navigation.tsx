@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
@@ -48,21 +47,15 @@ const Navigation = () => {
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem 0' }}>
           {/* Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
-            <Image
-              src="/logo-icon.png"
-              alt="Trinity Remodeling"
-              width={48}
-              height={48}
-              style={{ objectFit: 'contain', width: '48px', height: '48px' }}
-            />
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <span style={{
               fontFamily: 'var(--font-playfair), serif',
-              fontSize: '1.25rem',
+              fontSize: '1.5rem',
               fontWeight: 700,
-              color: scrolled ? 'var(--deep-navy)' : '#ffffff'
+              color: scrolled ? 'var(--deep-navy)' : '#ffffff',
+              letterSpacing: '-0.01em',
             }}>
-              Trinity Remodeling
+              <span style={{ color: 'var(--accent-teal)' }}>Trinity</span>{' '}Remodeling
             </span>
           </Link>
 

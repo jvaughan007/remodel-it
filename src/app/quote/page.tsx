@@ -33,7 +33,7 @@ type QuoteFormData = {
   // Preferences
   preferredContactMethod: 'email' | 'phone' | 'either';
   bestTimeToCall: string;
-  schedulConsultation: boolean;
+  scheduleConsultation: boolean;
 };
 
 export default function Quote() {
@@ -95,11 +95,11 @@ export default function Quote() {
             You can expect to hear from us within 24 hours with your detailed estimate.
           </p>
 
-          <div className="bg-[#e8f8fa] border border-[#a8e4ec] p-6 rounded-lg mb-6">
+          <div className="p-6 rounded-lg border mb-6" style={{ backgroundColor: 'var(--teal-light-bg)', borderColor: 'var(--teal-light-border)' }}>
             <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--deep-navy)' }}>
               What happens next?
             </h3>
-            <ul className="text-left space-y-2" style={{ color: '#1a6b77' }}>
+            <ul className="text-left space-y-2" style={{ color: 'var(--teal-light-text)' }}>
               <li className="flex items-start">
                 <span className="mr-2" style={{ color: 'var(--accent-teal)' }}>1.</span>
                 Our team reviews your project details within 2 hours
@@ -672,12 +672,12 @@ export default function Quote() {
                   </select>
                 </div>
 
-                <div className="bg-[#e8f8fa] border border-[#a8e4ec] p-6 rounded-lg mb-8">
+                <div className="p-6 rounded-lg border mb-8" style={{ backgroundColor: 'var(--teal-light-bg)', borderColor: 'var(--teal-light-border)' }}>
                   <div className="flex items-start space-x-3">
                     <input
                       type="checkbox"
                       id="scheduleConsultation"
-                      {...register('schedulConsultation')}
+                      {...register('scheduleConsultation')}
                       className="mt-1 w-4 h-4 rounded"
                       style={{ accentColor: 'var(--accent-teal)' }}
                     />
@@ -685,7 +685,7 @@ export default function Quote() {
                       <label htmlFor="scheduleConsultation" className="font-medium" style={{ color: 'var(--deep-navy)' }}>
                         Schedule an in-home consultation
                       </label>
-                      <p className="text-sm mt-1" style={{ color: '#1a6b77' }}>
+                      <p className="text-sm mt-1" style={{ color: 'var(--teal-light-text)' }}>
                         Check this box to schedule a free in-home consultation where we can discuss your project in detail and provide the most accurate estimate.
                       </p>
                     </div>

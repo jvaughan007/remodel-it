@@ -414,12 +414,13 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="bg-[#e8f8fa] border border-[#a8e4ec] p-6 rounded-2xl"
+                className="p-6 rounded-2xl border"
+                style={{ backgroundColor: 'var(--teal-light-bg)', borderColor: 'var(--teal-light-border)' }}
               >
                 <h3 className="text-lg font-semibold mb-2" style={{ color: 'var(--deep-navy)' }}>
                   Need Immediate Assistance?
                 </h3>
-                <p className="mb-4" style={{ color: '#1a6b77' }}>
+                <p className="mb-4" style={{ color: 'var(--teal-light-text)' }}>
                   For urgent matters or emergency repairs, call us directly:
                 </p>
                 <a
