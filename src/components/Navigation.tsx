@@ -33,47 +33,78 @@ const Navigation = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-          : 'bg-gray-900/80 backdrop-blur-sm'
-      }`}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        transition: 'all 0.3s',
+        backgroundColor: scrolled ? 'rgba(255,255,255,0.95)' : 'rgba(17,24,39,0.8)',
+        backdropFilter: scrolled ? 'blur(12px)' : 'blur(4px)',
+        boxShadow: scrolled ? '0 4px 6px -1px rgba(0,0,0,0.1)' : 'none',
+      }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem 0' }}>
           {/* Logo */}
-          <Link href="/" className="flex items-center" style={{ gap: '0.5rem' }}>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center" style={{ gap: '0.5rem' }}
-            >
-              <Image src="/logo-icon.png" alt="Trinity Remodeling" width={44} height={44} className="rounded-full" style={{ borderRadius: '50%' }} />
-              <span className={`font-serif text-xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>Trinity Remodeling</span>
-            </motion.div>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
+            <Image 
+              src="/logo-icon.png" 
+              alt="Trinity Remodeling" 
+              width={48} 
+              height={48} 
+              style={{ borderRadius: '50%', objectFit: 'cover', width: '48px', height: '48px' }} 
+            />
+            <span style={{ 
+              fontFamily: 'var(--font-playfair), serif',
+              fontSize: '1.25rem', 
+              fontWeight: 700, 
+              color: scrolled ? '#0A1A2F' : '#ffffff' 
+            }}>
+              Trinity Remodeling
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center" style={{ gap: '2rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="hidden md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative font-medium transition-colors hover:text-[#2BB6C9] ${
-                  pathname === item.href 
-                    ? 'text-[#2BB6C9]' 
-                    : scrolled ? 'text-gray-900' : 'text-white'
-                }`}
+                style={{
+                  position: 'relative',
+                  fontWeight: 500,
+                  textDecoration: 'none',
+                  color: pathname === item.href 
+                    ? '#2BB6C9' 
+                    : scrolled ? '#1f2937' : '#ffffff',
+                  transition: 'color 0.2s',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#2BB6C9'; }}
+                onMouseLeave={(e) => { 
+                  e.currentTarget.style.color = pathname === item.href 
+                    ? '#2BB6C9' 
+                    : scrolled ? '#1f2937' : '#ffffff'; 
+                }}
               >
                 {item.label}
                 {pathname === item.href && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#2BB6C9]"
+                    style={{
+                      position: 'absolute',
+                      bottom: '-4px',
+                      left: 0,
+                      right: 0,
+                      height: '2px',
+                      backgroundColor: '#2BB6C9',
+                    }}
                   />
                 )}
               </Link>
             ))}
-            <Link href="/quote" className="btn-primary ml-4">
+            <Link href="/quote" className="btn-primary" style={{ marginLeft: '1rem' }}>
               Free Quote
             </Link>
           </div>
@@ -82,25 +113,46 @@ const Navigation = () => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={toggleMenu}
-            className={`md:hidden p-2 rounded-lg ${
-              scrolled ? 'text-gray-900' : 'text-white'
-            }`}
+            className="md:hidden"
+            style={{
+              padding: '0.5rem',
+              borderRadius: '0.5rem',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              color: scrolled ? '#1f2937' : '#ffffff',
+            }}
           >
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
+            <div style={{ width: '24px', height: '24px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
               <span
-                className={`block h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${
-                  isOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'
-                }`}
+                style={{
+                  display: 'block',
+                  height: '2px',
+                  width: '24px',
+                  backgroundColor: 'currentColor',
+                  transform: isOpen ? 'rotate(45deg) translateY(4px)' : 'translateY(-4px)',
+                  transition: 'transform 0.3s',
+                }}
               />
               <span
-                className={`block h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${
-                  isOpen ? 'opacity-0' : 'opacity-100'
-                }`}
+                style={{
+                  display: 'block',
+                  height: '2px',
+                  width: '24px',
+                  backgroundColor: 'currentColor',
+                  opacity: isOpen ? 0 : 1,
+                  transition: 'opacity 0.3s',
+                }}
               />
               <span
-                className={`block h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${
-                  isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-1'
-                }`}
+                style={{
+                  display: 'block',
+                  height: '2px',
+                  width: '24px',
+                  backgroundColor: 'currentColor',
+                  transform: isOpen ? 'rotate(-45deg) translateY(-4px)' : 'translateY(4px)',
+                  transition: 'transform 0.3s',
+                }}
               />
             </div>
           </motion.button>
@@ -113,9 +165,10 @@ const Navigation = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-t border-gray-200"
+              className="md:hidden"
+              style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb' }}
             >
-              <div className="py-4 space-y-4">
+              <div style={{ padding: '1rem 0', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.href}
@@ -126,9 +179,13 @@ const Navigation = () => {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block px-4 py-2 text-gray-900 hover:text-[#2BB6C9] transition-colors ${
-                        pathname === item.href ? 'text-[#2BB6C9] font-semibold' : ''
-                      }`}
+                      style={{
+                        display: 'block',
+                        padding: '0.5rem 1rem',
+                        color: pathname === item.href ? '#2BB6C9' : '#1f2937',
+                        fontWeight: pathname === item.href ? 600 : 400,
+                        textDecoration: 'none',
+                      }}
                     >
                       {item.label}
                     </Link>
@@ -138,12 +195,13 @@ const Navigation = () => {
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: navItems.length * 0.1 }}
-                  className="px-4 py-2"
+                  style={{ padding: '0.5rem 1rem' }}
                 >
                   <Link
                     href="/quote"
                     onClick={() => setIsOpen(false)}
-                    className="btn-primary w-full text-center inline-block"
+                    className="btn-primary"
+                    style={{ display: 'block', textAlign: 'center' }}
                   >
                     Free Quote
                   </Link>
