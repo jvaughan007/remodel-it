@@ -55,21 +55,21 @@ export default function Contact() {
     {
       icon: "📞",
       title: "Phone",
-      details: "(972) 555-REMO",
+      details: "(972) 555-TRIN",
       subDetails: "Call or text anytime",
-      action: "tel:9725557366"
+      action: "tel:9725558746"
     },
     {
       icon: "✉️",
       title: "Email", 
-      details: "hello@remodelitdfw.com",
+      details: "hello@trinityremodelingdfw.com",
       subDetails: "We respond within 2 hours",
-      action: "mailto:hello@remodelitdfw.com"
+      action: "mailto:hello@trinityremodelingdfw.com"
     },
     {
       icon: "📍",
       title: "Address",
-      details: "123 Remodel Street",
+      details: "123 Trinity Drive",
       subDetails: "Dallas, TX 75201",
       action: "https://maps.google.com/?q=123+Remodel+Street+Dallas+TX+75201"
     },
@@ -101,7 +101,7 @@ export default function Contact() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Thank You!</h2>
           <p className="text-gray-600 mb-6">
             We&apos;ve received your message and will get back to you within 24 hours. 
-            For urgent matters, please call us directly at (972) 555-REMO.
+            For urgent matters, please call us directly at (972) 555-TRIN.
           </p>
           <button
             onClick={() => setIsSubmitted(false)}
@@ -117,7 +117,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-r from-gray-900 via-gray-800 to-amber-900">
+      <section className="relative py-24 bg-gradient-to-r from-gray-900 via-gray-800 to-[#0A1A2F]">
         <div className="absolute inset-0 bg-black/40" />
         <div 
           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20"
@@ -172,7 +172,7 @@ export default function Contact() {
                       type="text"
                       id="name"
                       {...register('name', { required: 'Name is required' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
                       placeholder="Your full name"
                     />
                     {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
@@ -192,7 +192,7 @@ export default function Contact() {
                           message: 'Invalid email address'
                         }
                       })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
                       placeholder="your.email@example.com"
                     />
                     {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
@@ -209,7 +209,7 @@ export default function Contact() {
                       type="tel"
                       id="phone"
                       {...register('phone')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
                       placeholder="(972) 555-0123"
                     />
                   </div>
@@ -221,7 +221,7 @@ export default function Contact() {
                     <select
                       id="subject"
                       {...register('subject', { required: 'Please select a subject' })}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
                     >
                       <option value="">Select a subject</option>
                       <option value="Kitchen Remodeling">Kitchen Remodeling</option>
@@ -246,7 +246,7 @@ export default function Contact() {
                     <select
                       id="preferredContact"
                       {...register('preferredContact')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
                     >
                       <option value="either">Either email or phone</option>
                       <option value="email">Email preferred</option>
@@ -261,7 +261,7 @@ export default function Contact() {
                     <select
                       id="bestTime"
                       {...register('bestTime')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
                     >
                       <option value="">Anytime</option>
                       <option value="Morning (8-12)">Morning (8AM-12PM)</option>
@@ -281,7 +281,7 @@ export default function Contact() {
                     id="message"
                     rows={6}
                     {...register('message', { required: 'Message is required' })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all resize-none"
                     placeholder="Tell us about your project, timeline, budget, and any specific requirements..."
                   />
                   {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
@@ -299,7 +299,7 @@ export default function Contact() {
                 </div>
 
                 <p className="text-sm text-gray-500 text-center">
-                  By submitting this form, you agree to be contacted by Remodel It! 
+                  By submitting this form, you agree to be contacted by Trinity Remodeling 
                   regarding your inquiry. We respect your privacy and will never share your information.
                 </p>
               </form>
@@ -347,7 +347,7 @@ export default function Contact() {
                         {info.action ? (
                           <a 
                             href={info.action}
-                            className="text-amber-500 hover:text-amber-600 font-medium"
+                            className="text-accent-teal hover:text-teal-dark font-medium"
                           >
                             {info.details}
                           </a>
@@ -367,19 +367,19 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="bg-amber-50 border border-amber-200 p-6 rounded-2xl"
+                className="bg-[#e8f8fa] border border-[#a8e4ec] p-6 rounded-2xl"
               >
-                <h3 className="text-lg font-semibold text-amber-800 mb-2">
+                <h3 className="text-lg font-semibold text-[#0A1A2F] mb-2">
                   Need Immediate Assistance?
                 </h3>
-                <p className="text-amber-700 mb-4">
+                <p className="text-[#1a6b77] mb-4">
                   For urgent matters or emergency repairs, call us directly:
                 </p>
                 <a 
-                  href="tel:9725557366"
-                  className="text-2xl font-bold text-amber-600 hover:text-amber-800 transition-colors"
+                  href="tel:9725558746"
+                  className="text-2xl font-bold text-teal-dark hover:text-[#0A1A2F] transition-colors"
                 >
-                  (972) 555-REMO
+                  (972) 555-TRIN
                 </a>
               </motion.div>
             </motion.div>
@@ -435,7 +435,7 @@ export default function Contact() {
               Give us a call to see if we service your location!
             </p>
             <a 
-              href="tel:9725557366"
+              href="tel:9725558746"
               className="btn-primary inline-block"
             >
               Call to Confirm Service Area
@@ -470,9 +470,9 @@ export default function Contact() {
             className="bg-gray-100 rounded-2xl p-8 text-center"
           >
             <div className="text-6xl mb-4">📍</div>
-            <h3 className="text-2xl font-bold mb-4">Remodel It! Showroom</h3>
+            <h3 className="text-2xl font-bold mb-4">Trinity Remodeling Showroom</h3>
             <address className="text-gray-600 not-italic mb-6">
-              123 Remodel Street<br />
+              123 Trinity Drive<br />
               Dallas, TX 75201<br />
               <strong>Mon-Fri:</strong> 7:00 AM - 6:00 PM<br />
               <strong>Saturday:</strong> 8:00 AM - 4:00 PM<br />
@@ -488,7 +488,7 @@ export default function Contact() {
                 Get Directions
               </a>
               <a 
-                href="tel:9725557366"
+                href="tel:9725558746"
                 className="btn-secondary"
               >
                 Call Before Visiting

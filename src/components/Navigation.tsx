@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
@@ -44,9 +45,10 @@ const Navigation = () => {
           <Link href="/" className="flex items-center space-x-2">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold"
+              className="flex items-center space-x-2"
             >
-              <span className="gradient-text font-serif">Remodel It!</span>
+              <Image src="/logo.jpg" alt="Trinity Remodeling" width={40} height={40} className="rounded" />
+              <span className="gradient-text font-serif text-2xl font-bold">Trinity Remodeling</span>
             </motion.div>
           </Link>
 
@@ -56,9 +58,9 @@ const Navigation = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative font-medium transition-colors hover:text-amber-500 ${
+                className={`relative font-medium transition-colors hover:text-accent-teal ${
                   pathname === item.href 
-                    ? 'text-amber-500' 
+                    ? 'text-accent-teal' 
                     : scrolled ? 'text-gray-900' : 'text-white'
                 }`}
               >
@@ -66,7 +68,7 @@ const Navigation = () => {
                 {pathname === item.href && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-amber-500"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-teal"
                   />
                 )}
               </Link>
@@ -124,8 +126,8 @@ const Navigation = () => {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block px-4 py-2 text-gray-900 hover:text-amber-500 transition-colors ${
-                        pathname === item.href ? 'text-amber-500 font-semibold' : ''
+                      className={`block px-4 py-2 text-gray-900 hover:text-accent-teal transition-colors ${
+                        pathname === item.href ? 'text-accent-teal font-semibold' : ''
                       }`}
                     >
                       {item.label}

@@ -51,7 +51,7 @@ export default function Home() {
     {
       name: "Sarah Johnson",
       location: "Plano, TX",
-      text: "Remodel It! transformed our outdated kitchen into a stunning modern space. The attention to detail and professionalism was exceptional.",
+      text: "Trinity Remodeling transformed our outdated kitchen into a stunning modern space. The attention to detail and professionalism was exceptional.",
       rating: 5
     },
     {
@@ -152,15 +152,15 @@ export default function Home() {
               className="mt-16 flex flex-wrap justify-center gap-8 text-sm text-gray-300"
             >
               <div className="flex items-center">
-                <span className="text-amber-500 mr-2">✓</span>
+                <span className="text-accent-teal mr-2">✓</span>
                 Licensed & Insured
               </div>
               <div className="flex items-center">
-                <span className="text-amber-500 mr-2">✓</span>
+                <span className="text-accent-teal mr-2">✓</span>
                 15+ Years Experience
               </div>
               <div className="flex items-center">
-                <span className="text-amber-500 mr-2">✓</span>
+                <span className="text-accent-teal mr-2">✓</span>
                 500+ Happy Customers
               </div>
             </motion.div>
@@ -202,7 +202,7 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-center"
               >
-                <div className="text-4xl lg:text-5xl font-bold text-amber-500 mb-2">
+                <div className="text-4xl lg:text-5xl font-bold text-accent-teal mb-2">
                   {stat.number}
                 </div>
                 <div className="text-gray-600 font-medium">{stat.label}</div>
@@ -260,7 +260,7 @@ export default function Home() {
                   <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                   <Link 
                     href="/services" 
-                    className="text-amber-500 font-semibold hover:text-amber-600 transition-colors inline-flex items-center"
+                    className="text-accent-teal font-semibold hover:text-teal-dark transition-colors inline-flex items-center"
                   >
                     Learn More 
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -285,7 +285,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold font-serif mb-6">
-              Why Choose <span className="gradient-text">Remodel It!</span>
+              Why Choose <span className="gradient-text">Trinity Remodeling</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Experience the difference with our commitment to excellence, 
@@ -351,7 +351,7 @@ export default function Home() {
               >
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="w-5 h-5 text-accent-teal" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -361,7 +361,7 @@ export default function Home() {
                 </p>
                 <div>
                   <div className="font-semibold text-white">{testimonial.name}</div>
-                  <div className="text-amber-500 text-sm">{testimonial.location}</div>
+                  <div className="text-accent-teal text-sm">{testimonial.location}</div>
                 </div>
               </motion.div>
             ))}
@@ -370,7 +370,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-amber-500">
+      <section className="section-padding bg-accent-teal">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -394,7 +394,7 @@ export default function Home() {
               >
                 <Link 
                   href="/quote" 
-                  className="bg-white text-amber-500 hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg"
+                  className="bg-white text-accent-teal hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg"
                 >
                   Get Free Quote
                 </Link>
@@ -406,7 +406,7 @@ export default function Home() {
               >
                 <Link 
                   href="/contact" 
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-amber-500 px-12 py-4 rounded-lg font-semibold text-lg transition-all"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-accent-teal px-12 py-4 rounded-lg font-semibold text-lg transition-all"
                 >
                   Contact Us
                 </Link>
@@ -416,10 +416,10 @@ export default function Home() {
             <div className="mt-12 text-white/80">
               <p className="text-lg mb-4">Call us today for immediate assistance</p>
               <a 
-                href="tel:9725557366" 
+                href="tel:9725558746" 
                 className="text-3xl font-bold text-white hover:text-gray-200 transition-colors"
               >
-                (972) 555-REMO
+                (972) 555-TRIN
               </a>
             </div>
           </motion.div>

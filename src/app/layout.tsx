@@ -15,15 +15,15 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Remodel It! - Premier Home Remodeling in Dallas/Fort Worth",
-  description: "Transform your home with Remodel It! Professional kitchen, bathroom, and whole home renovations serving Dallas, Fort Worth, Plano, Frisco, and surrounding DFW areas.",
+  title: "Trinity Remodeling - Premier Home Remodeling in Dallas/Fort Worth",
+  description: "Transform your home with Trinity Remodeling Professional kitchen, bathroom, and whole home renovations serving Dallas, Fort Worth, Plano, Frisco, and surrounding DFW areas.",
   keywords: "home remodeling, kitchen renovation, bathroom remodel, Dallas, Fort Worth, DFW, contractor, home renovation, interior design",
-  authors: [{ name: "Remodel It!" }],
+  authors: [{ name: "Trinity Remodeling" }],
   openGraph: {
-    title: "Remodel It! - Premier Home Remodeling in Dallas/Fort Worth",
+    title: "Trinity Remodeling - Premier Home Remodeling in Dallas/Fort Worth",
     description: "Transform your home with professional remodeling services in the DFW area",
-    url: "https://remodel-it.com",
-    siteName: "Remodel It!",
+    url: "https://trinityremodelingdfw.com",
+    siteName: "Trinity Remodeling",
     images: [
       {
         url: "/og-image.jpg",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Remodel It! - Premier Home Remodeling in Dallas/Fort Worth",
+    title: "Trinity Remodeling - Premier Home Remodeling in Dallas/Fort Worth",
     description: "Transform your home with professional remodeling services in the DFW area",
     images: ["/og-image.jpg"],
   },

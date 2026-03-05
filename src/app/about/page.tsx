@@ -23,7 +23,7 @@ export default function About() {
       name: "David Rodriguez",
       role: "Founder & Lead Designer",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-      bio: "With over 20 years in construction and design, David founded Remodel It! to bring exceptional craftsmanship to DFW homeowners."
+      bio: "With over 20 years in construction and design, David founded Trinity Remodeling to bring exceptional craftsmanship to DFW homeowners."
     },
     {
       name: "Sarah Mitchell",
@@ -79,7 +79,7 @@ export default function About() {
   ];
 
   const milestones = [
-    { year: "2010", event: "Remodel It! founded by David Rodriguez" },
+    { year: "2010", event: "Trinity Remodeling founded by David Rodriguez" },
     { year: "2013", event: "Expanded to serve entire DFW metroplex" },
     { year: "2016", event: "Completed 200th successful project" },
     { year: "2019", event: "Received Best of Dallas Home Remodeling Award" },
@@ -90,7 +90,7 @@ export default function About() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-r from-gray-900 via-gray-800 to-amber-900">
+      <section className="relative py-24 bg-gradient-to-r from-gray-900 via-gray-800 to-[#0A1A2F]">
         <div className="absolute inset-0 bg-black/40" />
         <div 
           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20"
@@ -105,7 +105,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold font-serif mb-6">
-              About <span className="gradient-text">Remodel It!</span>
+              About <span className="gradient-text">Trinity Remodeling</span>
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200">
               Transforming DFW homes with passion, expertise, and unwavering commitment to quality since 2010.
@@ -129,7 +129,7 @@ export default function About() {
               </h2>
               <div className="space-y-6 text-lg text-gray-600">
                 <p>
-                  Founded in 2010 by David Rodriguez, Remodel It! began with a simple mission: 
+                  Founded in 2010 by David Rodriguez, Trinity Remodeling began with a simple mission: 
                   to help Dallas/Fort Worth families transform their houses into dream homes. 
                   What started as a small renovation company has grown into one of the most 
                   trusted names in DFW home remodeling.
@@ -162,7 +162,7 @@ export default function About() {
                   backgroundImage: 'url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop")'
                 }}
               />
-              <div className="absolute -bottom-8 -right-8 bg-amber-500 text-white p-6 rounded-2xl shadow-xl">
+              <div className="absolute -bottom-8 -right-8 bg-accent-teal text-white p-6 rounded-2xl shadow-xl">
                 <div className="text-3xl font-bold">500+</div>
                 <div className="text-sm font-medium">Projects Completed</div>
               </div>
@@ -260,7 +260,7 @@ export default function About() {
                 className={`flex items-center mb-12 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
               >
                 <div className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} max-w-lg`}>
-                  <div className="flex-shrink-0 w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  <div className="flex-shrink-0 w-16 h-16 bg-accent-teal rounded-full flex items-center justify-center text-white font-bold text-lg">
                     {milestone.year}
                   </div>
                   <div className={`${index % 2 === 0 ? 'ml-6' : 'mr-6'} bg-gray-50 p-6 rounded-lg shadow-md`}>
@@ -312,7 +312,7 @@ export default function About() {
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                <p className="text-amber-500 font-semibold mb-4">{member.role}</p>
+                <p className="text-accent-teal font-semibold mb-4">{member.role}</p>
                 <p className="text-gray-300 text-sm">{member.bio}</p>
               </motion.div>
             ))}
@@ -321,7 +321,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-amber-500">
+      <section className="section-padding bg-accent-teal">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -335,7 +335,7 @@ export default function About() {
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Let&apos;s discuss your project and show you why homeowners throughout 
-              the DFW area trust Remodel It! with their most important investments.
+              the DFW area trust Trinity Remodeling with their most important investments.
             </p>
             
             <motion.div
@@ -344,7 +344,7 @@ export default function About() {
             >
               <a 
                 href="/contact" 
-                className="bg-white text-amber-500 hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg inline-block"
+                className="bg-white text-accent-teal hover:bg-gray-100 px-12 py-4 rounded-lg font-semibold text-lg transition-all shadow-lg inline-block"
               >
                 Start Your Project Today
               </a>
