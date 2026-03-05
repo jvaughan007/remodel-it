@@ -47,20 +47,29 @@ const Navigation = () => {
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem 0' }}>
           {/* Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', flexShrink: 0 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/trinity-logo.png"
+              alt="Trinity Remodeling"
+              width={36}
+              height={36}
+              style={{ objectFit: 'contain' }}
+            />
             <span style={{
               fontFamily: 'var(--font-playfair), serif',
-              fontSize: '1.5rem',
+              fontSize: '1.25rem',
               fontWeight: 700,
               color: scrolled ? 'var(--deep-navy)' : '#ffffff',
               letterSpacing: '-0.01em',
+              whiteSpace: 'nowrap',
             }}>
               <span style={{ color: 'var(--accent-teal)' }}>Trinity</span>{' '}Remodeling
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center" style={{ gap: '1.25rem' }}>
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -101,12 +110,14 @@ const Navigation = () => {
               href="tel:9725558746"
               style={{
                 fontWeight: 600,
+                fontSize: '0.875rem',
                 textDecoration: 'none',
                 color: scrolled ? 'var(--deep-navy)' : '#ffffff',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.375rem',
+                gap: '0.25rem',
                 transition: 'color 0.2s',
+                whiteSpace: 'nowrap',
               }}
               onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = scrolled ? 'var(--deep-navy)' : '#ffffff'; }}
@@ -116,7 +127,7 @@ const Navigation = () => {
               </svg>
               (972) 555-TRIN
             </a>
-            <Link href="/quote" className="btn-primary">
+            <Link href="/quote" className="btn-primary" style={{ whiteSpace: 'nowrap', padding: '0.5rem 1.25rem', fontSize: '0.875rem' }}>
               Free Quote
             </Link>
           </div>
@@ -125,7 +136,7 @@ const Navigation = () => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={toggleMenu}
-            className="md:hidden"
+            className="lg:hidden"
             style={{
               padding: '0.5rem',
               borderRadius: '0.5rem',
@@ -177,7 +188,7 @@ const Navigation = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden"
+              className="lg:hidden"
               style={{ backgroundColor: '#ffffff', borderTop: '1px solid #e5e7eb' }}
             >
               <div style={{ padding: '1rem 0', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
