@@ -54,7 +54,7 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
       >
         <Navigation />
-        <main>{children}</main>
+        <main className="overflow-x-hidden w-full">{children}</main>
         <Footer />
         <MobileCTA />
       </body>
