@@ -89,6 +89,12 @@ const Navigation = () => {
               alt=""
               aria-hidden="true"
               className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 object-contain"
+              style={{
+                backgroundColor: scrolled ? 'transparent' : '#ffffff',
+                borderRadius: '4px',
+                padding: scrolled ? 0 : '3px',
+                transition: 'background-color 0.3s ease, padding 0.3s ease',
+              }}
             />
             <span
               className="font-bold leading-tight whitespace-nowrap"

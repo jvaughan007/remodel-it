@@ -89,9 +89,9 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24" style={{ background: 'linear-gradient(to right, #111827, #1f2937, var(--deep-navy))' }}>
+      <section className="relative pt-44 pb-24" style={{ background: 'linear-gradient(to right, #111827, #1f2937, var(--deep-navy))' }}>
         <div className="absolute inset-0 bg-black/40" />
         <div
           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20"

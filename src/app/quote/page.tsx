@@ -143,9 +143,9 @@ export default function Quote() {
   }
 
   return (
-    <div className="min-h-screen pt-20 bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-16" style={{ background: 'linear-gradient(to right, #111827, #1f2937, var(--deep-navy))' }}>
+      <section className="relative pt-36 pb-16" style={{ background: 'linear-gradient(to right, #111827, #1f2937, var(--deep-navy))' }}>
         <div className="absolute inset-0 bg-black/40" />
         <div
           className="absolute inset-0 bg-cover bg-center bg-fixed opacity-20"
