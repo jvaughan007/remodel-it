@@ -29,7 +29,7 @@ export default function About() {
     {
       name: "Sarah Mitchell",
       role: "Interior Design Director",
-      image: "https://images.unsplash.com/photo-1494790108755-2616c67a0b4b?w=400&h=400&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&crop=face",
       bio: "Sarah brings 15 years of interior design expertise, specializing in creating functional and beautiful living spaces."
     },
     {

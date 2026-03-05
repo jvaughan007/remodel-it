@@ -99,7 +99,7 @@ export default function Services() {
       slug: "outdoor-living",
       shortDesc: "Extend your home outdoors",
       fullDesc: "Create the perfect outdoor entertainment space with our outdoor living solutions. From covered patios to outdoor kitchens, we help you make the most of Texas outdoor living.",
-      image: "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&h=600&fit=crop",
+      image: "https://images.unsplash.com/photo-1766603636617-0c71c2188160?w=800&h=600&fit=crop",
       features: [
         "Covered patios & pergolas",
         "Outdoor kitchens & grilling areas",
