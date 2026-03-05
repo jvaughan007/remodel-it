@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useForm } from 'react-hook-form';
+import { useSearchParams } from 'next/navigation';
 
 type QuoteFormData = {
   // Personal Info
@@ -37,6 +38,14 @@ type QuoteFormData = {
 };
 
 export default function Quote() {
+  return (
+    <Suspense>
+      <QuoteContent />
+    </Suspense>
+  );
+}
+
+function QuoteContent() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,8 +54,28 @@ export default function Quote() {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors }
   } = useForm<QuoteFormData>();
+
+  const searchParams = useSearchParams();
+
+  const slugToServiceType: Record<string, string> = {
+    'kitchen-remodeling': 'Kitchen Remodeling',
+    'bathroom-renovation': 'Bathroom Renovation',
+    'whole-home-remodeling': 'Whole Home Remodel',
+    'home-additions': 'Home Addition',
+    'outdoor-living': 'Outdoor Living',
+    'flooring-installation': 'Flooring Installation',
+  };
+
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    if (serviceParam && slugToServiceType[serviceParam]) {
+      setCurrentStep(2);
+      setValue('serviceType', slugToServiceType[serviceParam]);
+    }
+  }, [searchParams, setValue]);
 
   const totalSteps = 4;
 
