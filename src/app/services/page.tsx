@@ -1,24 +1,26 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Services() {
-  const [activeService, setActiveService] = useState(0);
+  const [expandedService, setExpandedService] = useState<number | null>(null);
+  const [cols, setCols] = useState(1);
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, ease: "easeOut" }
-  };
+  useEffect(() => {
+    const updateCols = () => {
+      if (window.innerWidth >= 1280) setCols(3);
+      else if (window.innerWidth >= 1024) setCols(2);
+      else setCols(1);
+    };
+    updateCols();
+    window.addEventListener('resize', updateCols);
+    return () => window.removeEventListener('resize', updateCols);
+  }, []);
 
-  const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
+  const toggleService = (index: number) => {
+    setExpandedService(prev => prev === index ? null : index);
   };
 
   const services = [
@@ -191,132 +193,165 @@ export default function Services() {
       {/* Services Grid */}
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={stagger}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8"
-          >
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all cursor-pointer"
-                onClick={() => setActiveService(index)}
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
-                    style={{ backgroundImage: `url("${service.image}")` }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
-                  <div className="absolute top-4 right-4 text-white px-3 py-1 rounded-full text-sm font-semibold" style={{ backgroundColor: 'var(--accent-teal)' }}>
-                    {service.priceRange}
-                  </div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <div className="text-3xl mb-2">{service.icon}</div>
-                    <h3 className="text-2xl font-bold">{service.title}</h3>
-                    <p className="text-gray-200 text-sm">{service.timeline}</p>
-                  </div>
-                </div>
-                <div className="p-6 sm:p-8">
-                  <p className="text-gray-600 mb-6 leading-relaxed">{service.shortDesc}</p>
-                  <ul className="space-y-2 mb-6">
-                    {service.features.slice(0, 3).map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-gray-500">
-                        <svg className="w-4 h-4 mr-2" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    className="font-semibold transition-colors inline-flex items-center"
-                    style={{ color: 'var(--accent-teal)' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--teal-dark)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
-                  >
-                    Learn More
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+          {Array.from({ length: Math.ceil(services.length / cols) }, (_, rowIdx) => {
+            const rowServices = services.slice(rowIdx * cols, rowIdx * cols + cols);
+            const expandedInThisRow = expandedService !== null
+              && expandedService >= rowIdx * cols
+              && expandedService < rowIdx * cols + cols;
 
-      {/* Featured Service Detail */}
-      <section className="section-padding bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="text-5xl mb-4">{services[activeService].icon}</div>
-              <h2 className="text-4xl font-bold font-serif mb-6">
-                <span className="gradient-text">{services[activeService].title}</span>
-              </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                {services[activeService].fullDesc}
-              </p>
+            return (
+              <div key={rowIdx}>
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
+                  {rowServices.map((service, colIdx) => {
+                    const serviceIndex = rowIdx * cols + colIdx;
+                    const isExpanded = expandedService === serviceIndex;
 
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="bg-white p-4 rounded-lg shadow-md">
-                  <div className="text-2xl font-bold" style={{ color: 'var(--accent-teal)' }}>
-                    {services[activeService].priceRange}
-                  </div>
-                  <div className="text-sm text-gray-500">Investment Range</div>
+                    return (
+                      <motion.div
+                        key={serviceIndex}
+                        initial={{ opacity: 0, y: 60 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: colIdx * 0.2 }}
+                        className={`bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all cursor-pointer ${
+                          isExpanded ? 'ring-2' : ''
+                        }`}
+                        style={isExpanded ? { borderColor: 'var(--accent-teal)', boxShadow: '0 0 0 2px var(--accent-teal)' } : {}}
+                        onClick={() => toggleService(serviceIndex)}
+                      >
+                        <div className="relative h-64 overflow-hidden">
+                          <div
+                            className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                            style={{ backgroundImage: `url("${service.image}")` }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
+                          <div className="absolute top-4 right-4 text-white px-3 py-1 rounded-full text-sm font-semibold" style={{ backgroundColor: 'var(--accent-teal)' }}>
+                            {service.priceRange}
+                          </div>
+                          <div className="absolute bottom-4 left-4 text-white">
+                            <div className="text-3xl mb-2">{service.icon}</div>
+                            <h3 className="text-2xl font-bold">{service.title}</h3>
+                            <p className="text-gray-200 text-sm">{service.timeline}</p>
+                          </div>
+                        </div>
+                        <div className="p-6 sm:p-8">
+                          <p className="text-gray-600 mb-6 leading-relaxed">{service.shortDesc}</p>
+                          <ul className="space-y-2 mb-6">
+                            {service.features.slice(0, 3).map((feature, idx) => (
+                              <li key={idx} className="flex items-center text-sm text-gray-500">
+                                <svg className="w-4 h-4 mr-2 flex-shrink-0" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                                {feature}
+                              </li>
+                            ))}
+                          </ul>
+                          <span
+                            className="font-semibold inline-flex items-center"
+                            style={{ color: 'var(--accent-teal)' }}
+                          >
+                            {isExpanded ? 'Close Details' : 'View Details'}
+                            <svg
+                              className="w-4 h-4 ml-2 transition-transform duration-300"
+                              style={{ transform: isExpanded ? 'rotate(90deg)' : 'none' }}
+                              fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </span>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
-                <div className="bg-white p-4 rounded-lg shadow-md">
-                  <div className="text-2xl font-bold" style={{ color: 'var(--accent-teal)' }}>
-                    {services[activeService].timeline}
-                  </div>
-                  <div className="text-sm text-gray-500">Typical Timeline</div>
-                </div>
+
+                {/* Inline Detail Panel */}
+                <AnimatePresence>
+                  {expandedInThisRow && expandedService !== null && (
+                    <motion.div
+                      key={`detail-${expandedService}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                      className="overflow-hidden mb-8"
+                    >
+                      <div className="bg-gray-50 rounded-2xl shadow-lg p-6 sm:p-8 lg:p-12">
+                        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                          {/* Left: Details */}
+                          <div>
+                            <div className="flex items-center gap-3 mb-4">
+                              <span className="text-4xl">{services[expandedService].icon}</span>
+                              <h2 className="text-3xl font-bold font-serif">
+                                <span className="gradient-text">{services[expandedService].title}</span>
+                              </h2>
+                            </div>
+                            <p className="text-lg text-gray-600 mb-6">
+                              {services[expandedService].fullDesc}
+                            </p>
+
+                            <div className="grid grid-cols-2 gap-4 mb-6">
+                              <div className="bg-white p-4 rounded-lg shadow-sm">
+                                <div className="text-xl font-bold" style={{ color: 'var(--accent-teal)' }}>
+                                  {services[expandedService].priceRange}
+                                </div>
+                                <div className="text-sm text-gray-500">Investment Range</div>
+                              </div>
+                              <div className="bg-white p-4 rounded-lg shadow-sm">
+                                <div className="text-xl font-bold" style={{ color: 'var(--accent-teal)' }}>
+                                  {services[expandedService].timeline}
+                                </div>
+                                <div className="text-sm text-gray-500">Typical Timeline</div>
+                              </div>
+                            </div>
+
+                            <h3 className="text-lg font-bold mb-3">What&apos;s Included:</h3>
+                            <ul className="space-y-2 mb-8">
+                              {services[expandedService].features.map((feature, idx) => (
+                                <li key={idx} className="flex items-center text-gray-600">
+                                  <svg className="w-5 h-5 mr-3 flex-shrink-0" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                  </svg>
+                                  {feature}
+                                </li>
+                              ))}
+                            </ul>
+
+                            <div className="flex flex-col sm:flex-row gap-4">
+                              <Link
+                                href={`/quote?service=${services[expandedService].slug}`}
+                                className="btn-primary text-center"
+                              >
+                                Get Free Quote for {services[expandedService].title}
+                              </Link>
+                              <a
+                                href="tel:9725558746"
+                                className="btn-secondary text-center"
+                              >
+                                Call (972) 555-TRIN
+                              </a>
+                            </div>
+                          </div>
+
+                          {/* Right: Image */}
+                          <div className="relative">
+                            <div
+                              className="rounded-2xl shadow-xl overflow-hidden h-64 sm:h-80 lg:h-96 bg-cover bg-center"
+                              style={{ backgroundImage: `url("${services[expandedService].image}")` }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-
-              <h3 className="text-xl font-bold mb-4">What&apos;s Included:</h3>
-              <ul className="space-y-2 mb-8">
-                {services[activeService].features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-gray-600">
-                    <svg className="w-5 h-5 mr-3" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <Link href="/quote" className="btn-primary">
-                Get Free Quote for This Service
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div
-                className="rounded-2xl shadow-2xl overflow-hidden h-96 bg-cover bg-center"
-                style={{ backgroundImage: `url("${services[activeService].image}")` }}
-              />
-            </motion.div>
-          </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Process Section - Fixed for mobile */}
+      {/* Process Section */}
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
