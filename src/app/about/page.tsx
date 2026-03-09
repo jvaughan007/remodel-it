@@ -154,7 +154,7 @@ export default function About() {
                   }}
                 />
               </div>
-              <div className="absolute -bottom-6 right-4 text-white p-6 rounded-2xl shadow-xl" style={{ backgroundColor: 'var(--accent-teal)' }}>
+              <div className="hidden sm:block absolute -bottom-6 right-4 text-white p-6 rounded-2xl shadow-xl" style={{ backgroundColor: 'var(--accent-teal)' }}>
                 <div className="text-3xl font-bold">500+</div>
                 <div className="text-sm font-medium">Projects Completed</div>
               </div>
