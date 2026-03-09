@@ -132,12 +132,28 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="relative mb-8"
             >
-              <div className="rounded-2xl shadow-2xl overflow-hidden h-96 bg-white flex items-center justify-center">
+              <div
+                className="rounded-2xl shadow-2xl overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #0A1A2F 0%, #1a3a5c 40%, #2BB6C9 100%)',
+                  height: '28rem',
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                  justifyContent: 'center',
+                  padding: '0 1.5rem',
+                }}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/nick-stephens-professional.png"
                   alt="Nick Stephens, founder of Trinity Remodeling"
-                  className="h-full w-auto object-contain"
+                  style={{
+                    height: '95%',
+                    width: 'auto',
+                    objectFit: 'contain',
+                    objectPosition: 'bottom',
+                    filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.4))',
+                  }}
                 />
               </div>
               <div className="absolute -bottom-6 right-4 text-white p-6 rounded-2xl shadow-xl" style={{ backgroundColor: 'var(--accent-teal)' }}>
@@ -252,80 +268,101 @@ export default function About() {
         </div>
       </section>
 
-      {/* Meet Nick Section (replaces team) */}
+      {/* Why Work Directly With Me */}
       <section className="section-padding bg-gray-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="max-w-3xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl lg:text-5xl font-bold font-serif mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold font-serif mb-6 text-center">
                 Why Work <span className="gradient-text">Directly With Me</span>
               </h2>
-              <div className="space-y-6 text-lg text-gray-300">
-                <p>
-                  When you choose Trinity Remodeling, you&apos;re not handed off to a project
-                  manager or a rotating crew. I personally oversee every project from start to finish.
-                </p>
-                <div className="space-y-4">
+              <p className="text-lg text-gray-300 mb-10 text-center">
+                When you choose Trinity Remodeling, you&apos;re not handed off to a project
+                manager or a rotating crew. I personally oversee every project from start to finish.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6 mb-12">
+                <div className="bg-gray-800 p-6 rounded-2xl">
                   <div className="flex items-start gap-3">
                     <svg className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <div>
-                      <strong className="text-white">One point of contact.</strong>{' '}
-                      You always know who to call, and I always pick up.
+                      <strong className="text-white text-lg">One point of contact.</strong>
+                      <p className="text-gray-400 mt-1">You always know who to call, and I always pick up.</p>
                     </div>
                   </div>
+                </div>
+                <div className="bg-gray-800 p-6 rounded-2xl">
                   <div className="flex items-start gap-3">
                     <svg className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <div>
-                      <strong className="text-white">Owner on the job site.</strong>{' '}
-                      I&apos;m hands-on throughout your project, not behind a desk.
+                      <strong className="text-white text-lg">Owner on the job site.</strong>
+                      <p className="text-gray-400 mt-1">I&apos;m hands-on throughout your project, not behind a desk.</p>
                     </div>
                   </div>
+                </div>
+                <div className="bg-gray-800 p-6 rounded-2xl">
                   <div className="flex items-start gap-3">
                     <svg className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <div>
-                      <strong className="text-white">Accountability.</strong>{' '}
-                      My name and reputation are on every project. That&apos;s the best guarantee you&apos;ll get.
+                      <strong className="text-white text-lg">Accountability.</strong>
+                      <p className="text-gray-400 mt-1">My name and reputation are on every project. That&apos;s the best guarantee you&apos;ll get.</p>
                     </div>
                   </div>
+                </div>
+                <div className="bg-gray-800 p-6 rounded-2xl">
                   <div className="flex items-start gap-3">
                     <svg className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     <div>
-                      <strong className="text-white">Trusted network.</strong>{' '}
-                      I work with the same skilled tradespeople I&apos;ve built relationships with over 15 years.
+                      <strong className="text-white text-lg">Trusted network.</strong>
+                      <p className="text-gray-400 mt-1">I work with the same skilled tradespeople I&apos;ve built relationships with over 15 years.</p>
                     </div>
                   </div>
                 </div>
               </div>
             </motion.div>
 
+            {/* Credential strip */}
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex justify-center"
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="grid grid-cols-3 gap-px rounded-2xl overflow-hidden"
+              style={{ background: 'rgba(43,182,201,0.2)' }}
             >
-              <div className="rounded-2xl overflow-hidden shadow-2xl bg-white">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/nick-stephens-casual.png"
-                  alt="Nick Stephens"
-                  className="w-80 h-auto object-contain"
-                />
-              </div>
+              {[
+                { stat: '500+', label: 'Projects Completed' },
+                { stat: '98%', label: 'Client Satisfaction' },
+                { stat: '15+', label: 'Years Experience' },
+              ].map((item) => (
+                <div
+                  key={item.stat}
+                  className="bg-gray-900 text-center py-8 px-4"
+                >
+                  <div
+                    className="text-3xl sm:text-4xl font-bold mb-1"
+                    style={{ color: 'var(--accent-teal)' }}
+                  >
+                    {item.stat}
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-400 font-medium uppercase tracking-wide">
+                    {item.label}
+                  </div>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
