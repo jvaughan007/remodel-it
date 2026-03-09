@@ -25,7 +25,7 @@ export default function Services() {
       title: "Kitchen Remodeling",
       slug: "kitchen-remodeling",
       shortDesc: "Transform your kitchen into the heart of your home",
-      fullDesc: "Our kitchen remodeling services combine functionality with style to create the perfect space for cooking, entertaining, and family gatherings. From modern minimalist designs to traditional farmhouse aesthetics, we bring your vision to life.",
+      fullDesc: "My kitchen remodeling services combine functionality with style to create the perfect space for cooking, entertaining, and family gatherings. From modern minimalist designs to traditional farmhouse aesthetics, I bring your vision to life.",
       image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop",
       features: [
         "Custom cabinet design & installation",
@@ -43,7 +43,7 @@ export default function Services() {
       title: "Bathroom Renovation",
       slug: "bathroom-renovation",
       shortDesc: "Create your personal spa retreat",
-      fullDesc: "Transform your bathroom into a luxurious retreat with our comprehensive renovation services. Whether you want a spa-like master suite or a functional family bathroom, we deliver exceptional results.",
+      fullDesc: "Transform your bathroom into a luxurious retreat with my comprehensive renovation services. Whether you want a spa-like master suite or a functional family bathroom, I deliver exceptional results.",
       image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop",
       features: [
         "Custom tile work & design",
@@ -61,7 +61,7 @@ export default function Services() {
       title: "Whole Home Remodeling",
       slug: "whole-home-remodeling",
       shortDesc: "Complete home transformation",
-      fullDesc: "Reimagine your entire living space with our comprehensive whole home remodeling services. We handle everything from architectural changes to interior design, creating a cohesive and stunning transformation.",
+      fullDesc: "Reimagine your entire living space with my comprehensive whole home remodeling services. I handle everything from architectural changes to interior design, creating a cohesive and stunning transformation.",
       image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=600&fit=crop",
       features: [
         "Architectural planning & permits",
@@ -79,7 +79,7 @@ export default function Services() {
       title: "Home Additions",
       slug: "home-additions",
       shortDesc: "Expand your living space",
-      fullDesc: "Add square footage and functionality to your home with our expertly designed and built additions. From extra bedrooms to expanded living areas, we seamlessly integrate new spaces with your existing home.",
+      fullDesc: "Add square footage and functionality to your home with expertly designed and built additions. From extra bedrooms to expanded living areas, I seamlessly integrate new spaces with your existing home.",
       image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop",
       features: [
         "Room additions & extensions",
@@ -97,7 +97,7 @@ export default function Services() {
       title: "Outdoor Living Spaces",
       slug: "outdoor-living",
       shortDesc: "Extend your home outdoors",
-      fullDesc: "Create the perfect outdoor entertainment space with our outdoor living solutions. From covered patios to outdoor kitchens, we help you make the most of Texas outdoor living.",
+      fullDesc: "Create the perfect outdoor entertainment space with my outdoor living solutions. From covered patios to outdoor kitchens, I help you make the most of Texas outdoor living.",
       image: "https://images.unsplash.com/photo-1766603636617-0c71c2188160?w=800&h=600&fit=crop",
       features: [
         "Covered patios & pergolas",
@@ -115,7 +115,7 @@ export default function Services() {
       title: "Flooring Installation",
       slug: "flooring-installation",
       shortDesc: "Beautiful floors for every room",
-      fullDesc: "Update your home with beautiful, durable flooring that fits your lifestyle and budget. We offer a wide range of materials and expert installation for lasting results.",
+      fullDesc: "Update your home with beautiful, durable flooring that fits your lifestyle and budget. I offer a wide range of materials and expert installation for lasting results.",
       image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&h=600&fit=crop",
       features: [
         "Hardwood flooring installation",
@@ -135,27 +135,27 @@ export default function Services() {
     {
       step: "1",
       title: "Initial Consultation",
-      description: "We meet with you to discuss your vision, needs, and budget for your remodeling project."
+      description: "I meet with you personally to discuss your vision, needs, and budget for your remodeling project."
     },
     {
       step: "2",
       title: "Design & Planning",
-      description: "Our team creates detailed plans and 3D renderings to visualize your new space."
+      description: "I create detailed plans and 3D renderings to help you visualize your new space."
     },
     {
       step: "3",
       title: "Permits & Approval",
-      description: "We handle all necessary permits and approvals to ensure your project meets local codes."
+      description: "I handle all necessary permits and approvals to ensure your project meets local codes."
     },
     {
       step: "4",
       title: "Construction",
-      description: "Our skilled craftsmen bring your vision to life with quality materials and expert workmanship."
+      description: "I bring your vision to life with quality materials and expert workmanship, personally on site."
     },
     {
       step: "5",
       title: "Final Walkthrough",
-      description: "We conduct a thorough inspection with you to ensure everything exceeds your expectations."
+      description: "I conduct a thorough inspection with you to ensure everything exceeds your expectations."
     }
   ];
 
@@ -330,10 +330,10 @@ export default function Services() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold font-serif mb-6">
-              Our <span className="gradient-text">Process</span>
+              My <span className="gradient-text">Process</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From initial consultation to final walkthrough, we ensure a smooth,
+              From initial consultation to final walkthrough, I ensure a smooth,
               transparent process that keeps you informed every step of the way.
             </p>
           </motion.div>
@@ -376,7 +376,7 @@ export default function Services() {
               Proudly Serving the <span className="gradient-text">DFW Area</span>
             </h2>
             <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-              We provide our comprehensive remodeling services throughout the Dallas/Fort Worth metroplex,
+              I provide comprehensive remodeling services throughout the Dallas/Fort Worth metroplex,
               with deep knowledge of local building codes and architectural styles.
             </p>
 
@@ -418,7 +418,7 @@ export default function Services() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Contact us today for a free consultation and detailed quote for your remodeling project.
+              Contact me today for a free consultation and detailed quote for your remodeling project.
               Let&apos;s bring your dream home to life!
             </p>
 

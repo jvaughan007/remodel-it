@@ -64,7 +64,7 @@ export default function Contact() {
       icon: "✉️",
       title: "Email",
       details: "hello@trinityremodelingdfw.com",
-      subDetails: "We respond within 2 hours",
+      subDetails: "I respond within 2 hours",
       action: "mailto:hello@trinityremodelingdfw.com"
     },
     {
@@ -101,8 +101,8 @@ export default function Contact() {
           <div className="text-6xl mb-4">✅</div>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Thank You!</h2>
           <p className="text-gray-600 mb-6">
-            We&apos;ve received your message and will get back to you within 24 hours.
-            For urgent matters, please call us directly at (972) 555-TRIN.
+            I&apos;ve received your message and will get back to you within 24 hours.
+            For urgent matters, call me directly at (972) 555-TRIN.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
@@ -138,10 +138,10 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold font-serif mb-6">
-              Contact <span className="gradient-text">Us</span>
+              Get In <span className="gradient-text">Touch</span>
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200">
-              Ready to start your dream project? Get in touch with our expert team for a free consultation and quote.
+              Ready to start your dream project? Reach out directly to Nick for a free consultation and quote.
             </p>
           </motion.div>
         </div>
@@ -163,8 +163,8 @@ export default function Contact() {
                 Send Us a <span className="gradient-text">Message</span>
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form below and we&apos;ll get back to you within 24 hours.
-                For immediate assistance, please call us directly.
+                Fill out the form below and I&apos;ll get back to you within 24 hours.
+                For immediate assistance, give me a call directly.
               </p>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -339,8 +339,8 @@ export default function Contact() {
                   Get In <span className="gradient-text">Touch</span>
                 </h2>
                 <p className="text-gray-600 text-lg">
-                  We&apos;re here to help with all your remodeling needs. Contact us today
-                  for a free consultation and see how we can transform your home.
+                  I&apos;m here to help with all your remodeling needs. Contact me today
+                  for a free consultation and let&apos;s discuss how to transform your home.
                 </p>
               </div>
 
@@ -449,10 +449,10 @@ export default function Contact() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl lg:text-5xl font-bold font-serif mb-6">
-              We Proudly Serve the <span className="gradient-text">DFW Area</span>
+              Proudly Serving the <span className="gradient-text">DFW Area</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our team provides comprehensive remodeling services throughout the Dallas/Fort Worth
+              I provide comprehensive remodeling services throughout the Dallas/Fort Worth
               metroplex and surrounding communities.
             </p>
           </motion.div>
@@ -483,7 +483,7 @@ export default function Contact() {
           >
             <p className="text-gray-600 mb-6">
               Don&apos;t see your city listed? We serve many more communities throughout the DFW area.
-              Give us a call to see if we service your location!
+              Give me a call to confirm service in your area!
             </p>
             <a
               href="tel:9725558746"
@@ -509,7 +509,7 @@ export default function Contact() {
               Visit Our <span className="gradient-text">Showroom</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Come see our work in person and meet with our design team at our Dallas showroom.
+              Come see my work in person and discuss your project at the Dallas showroom.
             </p>
           </motion.div>
 
@@ -546,7 +546,7 @@ export default function Contact() {
               </a>
             </div>
             <p className="text-sm text-gray-500 mt-6">
-              Appointments recommended to ensure a designer is available to meet with you.
+              Appointments recommended to ensure I&apos;m available to meet with you.
             </p>
           </motion.div>
         </div>

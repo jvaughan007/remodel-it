@@ -19,57 +19,30 @@ export default function About() {
     }
   };
 
-  const teamMembers = [
-    {
-      name: "David Rodriguez",
-      role: "Founder & Lead Designer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-      bio: "With over 20 years in construction and design, David founded Trinity Remodeling to bring exceptional craftsmanship to DFW homeowners."
-    },
-    {
-      name: "Sarah Mitchell",
-      role: "Interior Design Director",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&crop=face",
-      bio: "Sarah brings 15 years of interior design expertise, specializing in creating functional and beautiful living spaces."
-    },
-    {
-      name: "Mike Thompson",
-      role: "Project Manager",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-      bio: "Mike ensures every project runs smoothly from start to finish, coordinating all trades and maintaining quality standards."
-    },
-    {
-      name: "Jennifer Lee",
-      role: "Client Relations Manager",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-      bio: "Jennifer is your primary point of contact, ensuring clear communication and exceptional customer service throughout your project."
-    }
-  ];
-
   const values = [
     {
       title: "Quality Craftsmanship",
-      description: "We never compromise on quality. Every detail matters, from the initial design to the final finish.",
+      description: "I never compromise on quality. Every detail matters, from the initial design to the final finish.",
       icon: "🔨"
     },
     {
       title: "Transparent Communication",
-      description: "Open, honest communication throughout every phase of your project. No surprises, just results.",
+      description: "You work directly with me throughout every phase of your project. No middlemen, no runaround.",
       icon: "💬"
     },
     {
       title: "Client Satisfaction",
-      description: "Your happiness is our success. We don't consider a job complete until you're 100% satisfied.",
+      description: "Your happiness is my success. I don't consider a job complete until you're 100% satisfied.",
       icon: "⭐"
     },
     {
       title: "Innovation",
-      description: "We stay current with the latest trends, materials, and techniques to deliver modern solutions.",
+      description: "I stay current with the latest trends, materials, and techniques to deliver modern solutions.",
       icon: "💡"
     },
     {
       title: "Integrity",
-      description: "We do what we say we'll do, when we say we'll do it, at the price we agreed upon.",
+      description: "I do what I say I'll do, when I say I'll do it, at the price we agreed upon. My word is my bond.",
       icon: "🤝"
     },
     {
@@ -80,8 +53,8 @@ export default function About() {
   ];
 
   const milestones = [
-    { year: "2010", event: "Trinity Remodeling founded by David Rodriguez" },
-    { year: "2013", event: "Expanded to serve entire DFW metroplex" },
+    { year: "2010", event: "Nick Stephens founds Trinity Remodeling in Dallas" },
+    { year: "2013", event: "Expanded service area across the entire DFW metroplex" },
     { year: "2016", event: "Completed 200th successful project" },
     { year: "2019", event: "Received Best of Dallas Home Remodeling Award" },
     { year: "2021", event: "Achieved 98% customer satisfaction rating" },
@@ -106,16 +79,17 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold font-serif mb-6">
-              About <span className="gradient-text">Trinity Remodeling</span>
+              Meet <span className="gradient-text">Nick Stephens</span>
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200">
-              Transforming DFW homes with passion, expertise, and unwavering commitment to quality since 2010.
+              The craftsman behind Trinity Remodeling. Over 15 years of transforming DFW homes
+              with hands-on expertise and an unwavering commitment to quality.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Company Story */}
+      {/* Nick's Story */}
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -126,26 +100,27 @@ export default function About() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl font-bold font-serif mb-6">
-                Our <span className="gradient-text">Story</span>
+                My <span className="gradient-text">Story</span>
               </h2>
               <div className="space-y-6 text-lg text-gray-600">
                 <p>
-                  Founded in 2010 by David Rodriguez, Trinity Remodeling began with a simple mission:
-                  to help Dallas/Fort Worth families transform their houses into dream homes.
-                  What started as a small renovation company has grown into one of the most
-                  trusted names in DFW home remodeling.
+                  I&apos;m Nick Stephens, and I founded Trinity Remodeling in 2010 with a straightforward
+                  belief: homeowners deserve a remodeler who treats their home like his own. After
+                  years working in construction and interior design across the DFW area, I set out
+                  on my own to deliver the kind of craftsmanship and personal attention that larger
+                  companies simply can&apos;t match.
                 </p>
                 <p>
-                  David&apos;s background in both construction and interior design uniquely positioned
-                  him to understand that successful remodeling requires both technical expertise
-                  and creative vision. This dual focus has been the cornerstone of our approach
-                  for over a decade.
+                  My background in both construction and design means I see your project from every
+                  angle &mdash; the structural integrity, the aesthetic vision, and the practical details
+                  that make a space truly livable. When you hire Trinity Remodeling, you work directly
+                  with me from the first consultation to the final walkthrough.
                 </p>
                 <p>
-                  Today, with over 500 completed projects and a 98% customer satisfaction rate,
-                  we continue to push the boundaries of what&apos;s possible in home renovation.
-                  Every project is an opportunity to exceed expectations and create spaces that
-                  our clients will love for years to come.
+                  Over 500 completed projects and a 98% satisfaction rate later, I&apos;m still doing
+                  what I love: helping Dallas/Fort Worth families turn their houses into dream homes.
+                  Every project is personal to me, and I won&apos;t stop until you&apos;re thrilled with
+                  the result.
                 </p>
               </div>
             </motion.div>
@@ -157,12 +132,14 @@ export default function About() {
               transition={{ duration: 0.8 }}
               className="relative mb-8"
             >
-              <div
-                className="rounded-2xl shadow-2xl overflow-hidden h-96 bg-cover bg-center"
-                style={{
-                  backgroundImage: 'url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop")'
-                }}
-              />
+              <div className="rounded-2xl shadow-2xl overflow-hidden h-96 bg-white flex items-center justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/nick-stephens-professional.png"
+                  alt="Nick Stephens, founder of Trinity Remodeling"
+                  className="h-full w-auto object-contain"
+                />
+              </div>
               <div className="absolute -bottom-6 right-4 text-white p-6 rounded-2xl shadow-xl" style={{ backgroundColor: 'var(--accent-teal)' }}>
                 <div className="text-3xl font-bold">500+</div>
                 <div className="text-sm font-medium">Projects Completed</div>
@@ -183,11 +160,11 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold font-serif mb-6">
-              Our <span className="gradient-text">Mission & Values</span>
+              My <span className="gradient-text">Mission & Values</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We&apos;re driven by a passion for creating beautiful, functional spaces that enhance
-              our clients&apos; daily lives while adding lasting value to their homes.
+              I&apos;m driven by a passion for creating beautiful, functional spaces that enhance
+              my clients&apos; daily lives while adding lasting value to their homes.
             </p>
           </motion.div>
 
@@ -199,10 +176,11 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="bg-white rounded-2xl p-8 shadow-lg mb-16 text-center"
           >
-            <h3 className="text-2xl font-bold mb-4 text-gray-900">Our Mission</h3>
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">My Mission</h3>
             <p className="text-lg text-gray-600 italic max-w-4xl mx-auto">
-              &quot;To transform DFW homes through exceptional craftsmanship, innovative design, and unparalleled customer service,
-              creating spaces that reflect our clients&apos; unique lifestyles while exceeding their expectations at every turn.&quot;
+              &quot;To transform DFW homes through exceptional craftsmanship, innovative design, and the kind of
+              personal service you only get when the owner is on the job site. I build spaces that reflect my
+              clients&apos; unique lifestyles while exceeding their expectations at every turn.&quot;
             </p>
           </motion.div>
 
@@ -231,7 +209,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Timeline - Fixed for mobile */}
+      {/* Timeline */}
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -242,11 +220,11 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold font-serif mb-6">
-              Our <span className="gradient-text">Journey</span>
+              The <span className="gradient-text">Journey</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From humble beginnings to becoming DFW&apos;s premier remodeling company,
-              here are the key milestones in our story.
+              From a one-man operation to DFW&apos;s most trusted remodeling professional,
+              here are the milestones along the way.
             </p>
           </motion.div>
 
@@ -274,50 +252,82 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Meet Nick Section (replaces team) */}
       <section className="section-padding bg-gray-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl lg:text-5xl font-bold font-serif mb-6">
-              Meet Our <span className="gradient-text">Team</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Our experienced professionals are passionate about bringing your vision to life
-              with expertise, creativity, and attention to detail.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={stagger}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                className="text-center group"
-              >
-                <div className="relative mb-6 mx-auto w-48 h-48 rounded-full overflow-hidden group-hover:scale-105 transition-transform">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url("${member.image}")` }}
-                  />
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl lg:text-5xl font-bold font-serif mb-6">
+                Why Work <span className="gradient-text">Directly With Me</span>
+              </h2>
+              <div className="space-y-6 text-lg text-gray-300">
+                <p>
+                  When you choose Trinity Remodeling, you&apos;re not handed off to a project
+                  manager or a rotating crew. I personally oversee every project from start to finish.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <div>
+                      <strong className="text-white">One point of contact.</strong>{' '}
+                      You always know who to call, and I always pick up.
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <div>
+                      <strong className="text-white">Owner on the job site.</strong>{' '}
+                      I&apos;m hands-on throughout your project, not behind a desk.
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <div>
+                      <strong className="text-white">Accountability.</strong>{' '}
+                      My name and reputation are on every project. That&apos;s the best guarantee you&apos;ll get.
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 mt-1 flex-shrink-0" style={{ color: 'var(--accent-teal)' }} fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <div>
+                      <strong className="text-white">Trusted network.</strong>{' '}
+                      I work with the same skilled tradespeople I&apos;ve built relationships with over 15 years.
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                <p className="font-semibold mb-4" style={{ color: 'var(--accent-teal)' }}>{member.role}</p>
-                <p className="text-gray-300 text-sm">{member.bio}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex justify-center"
+            >
+              <div className="rounded-2xl overflow-hidden shadow-2xl bg-white">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/nick-stephens-casual.png"
+                  alt="Nick Stephens"
+                  className="w-80 h-auto object-contain"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -331,12 +341,12 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold font-serif text-white mb-6">
-              Ready to Work With
-              <span className="block">Our Expert Team?</span>
+              Ready to Work
+              <span className="block">With Nick?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Let&apos;s discuss your project and show you why homeowners throughout
-              the DFW area trust Trinity Remodeling with their most important investments.
+              Let&apos;s discuss your project. I&apos;ll give you honest advice, a fair price,
+              and the personal attention your home deserves.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

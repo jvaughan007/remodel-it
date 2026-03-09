@@ -120,8 +120,8 @@ function QuoteContent() {
           <div className="text-6xl mb-6">🎉</div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
           <p className="text-lg text-gray-600 mb-6">
-            We&apos;ve received your quote request and our team is already reviewing the details.
-            You can expect to hear from us within 24 hours with your detailed estimate.
+            I&apos;ve received your quote request and I&apos;m already reviewing the details.
+            You can expect to hear from me within 24 hours with your detailed estimate.
           </p>
 
           <div className="p-6 rounded-lg border mb-6" style={{ backgroundColor: 'var(--teal-light-bg)', borderColor: 'var(--teal-light-border)' }}>
@@ -131,15 +131,15 @@ function QuoteContent() {
             <ul className="text-left space-y-2" style={{ color: 'var(--teal-light-text)' }}>
               <li className="flex items-start">
                 <span className="mr-2" style={{ color: 'var(--accent-teal)' }}>1.</span>
-                Our team reviews your project details within 2 hours
+                I review your project details within 2 hours
               </li>
               <li className="flex items-start">
                 <span className="mr-2" style={{ color: 'var(--accent-teal)' }}>2.</span>
-                We&apos;ll call or email you to schedule a consultation
+                I&apos;ll call or email you personally to schedule a consultation
               </li>
               <li className="flex items-start">
                 <span className="mr-2" style={{ color: 'var(--accent-teal)' }}>3.</span>
-                We visit your home to assess the project and discuss options
+                I visit your home to assess the project and discuss options
               </li>
               <li className="flex items-start">
                 <span className="mr-2" style={{ color: 'var(--accent-teal)' }}>4.</span>
@@ -164,7 +164,7 @@ function QuoteContent() {
           </div>
 
           <p className="text-sm text-gray-500 mt-6">
-            For immediate assistance, call us at (972) 555-TRIN
+            For immediate assistance, call me at (972) 555-TRIN
           </p>
         </motion.div>
       </div>
@@ -192,8 +192,8 @@ function QuoteContent() {
               Get Your Free <span className="gradient-text">Quote</span>
             </h1>
             <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
-              Tell us about your project and receive a detailed estimate within 24 hours.
-              No obligations, just honest pricing from DFW&apos;s trusted remodeling experts.
+              Tell me about your project and receive a detailed estimate within 24 hours.
+              No obligations, just honest pricing from a DFW remodeling professional you can trust.
             </p>
           </motion.div>
         </div>
@@ -760,7 +760,7 @@ function QuoteContent() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold font-serif mb-6">
-              Why Choose Our <span className="gradient-text">Free Quote Service</span>
+              Why Choose My <span className="gradient-text">Free Quote Service</span>
             </h2>
           </motion.div>
 
@@ -769,22 +769,22 @@ function QuoteContent() {
               {
                 icon: "⚡",
                 title: "Quick Response",
-                description: "Get your detailed quote within 24 hours of submission. We respect your time and act fast."
+                description: "Get your detailed quote within 24 hours of submission. I respect your time and act fast."
               },
               {
                 icon: "📐",
                 title: "Accurate Estimates",
-                description: "Our detailed quotes are based on 15+ years of experience and current market pricing."
+                description: "My detailed quotes are based on 15+ years of experience and current market pricing."
               },
               {
                 icon: "🤝",
                 title: "No Pressure",
-                description: "Our quotes come with no obligations. Take your time to make the right decision for your home."
+                description: "My quotes come with no obligations. Take your time to make the right decision for your home."
               },
               {
                 icon: "🏆",
                 title: "Expert Consultation",
-                description: "Included free in-home consultation with our design experts to discuss your vision."
+                description: "Included free in-home consultation where I personally discuss your vision and ideas."
               },
               {
                 icon: "💰",
@@ -794,7 +794,7 @@ function QuoteContent() {
               {
                 icon: "📋",
                 title: "Comprehensive Planning",
-                description: "We include timeline, materials, labor, and project phases in every detailed estimate."
+                description: "I include timeline, materials, labor, and project phases in every detailed estimate."
               }
             ].map((benefit, index) => (
               <motion.div

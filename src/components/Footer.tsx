@@ -37,8 +37,8 @@ const Footer = () => {
               Trinity Remodeling
             </h3>
             <p className="text-gray-300 mb-6">
-              Transform your home with Dallas/Fort Worth&apos;s premier remodeling experts.
-              Quality craftsmanship, innovative design, and exceptional service since 2010.
+              Nick Stephens &mdash; Dallas/Fort Worth&apos;s trusted remodeling professional.
+              Quality craftsmanship, personal attention, and exceptional service since 2010.
             </p>
             <div className="space-y-2 text-gray-300">
               <p className="flex items-center">
@@ -74,7 +74,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="text-lg font-semibold mb-4" style={{ color: 'var(--accent-teal)' }}>Our Services</h4>
+            <h4 className="text-lg font-semibold mb-4" style={{ color: 'var(--accent-teal)' }}>Services</h4>
             <ul className="space-y-2">
               {services.map((service, index) => (
                 <li key={index}>

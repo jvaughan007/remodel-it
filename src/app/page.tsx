@@ -57,7 +57,7 @@ export default function Home() {
     {
       name: "Mike Chen",
       location: "Frisco, TX",
-      text: "From design to completion, the team exceeded our expectations. Our whole home renovation was completed on time and within budget.",
+      text: "From design to completion, Nick exceeded our expectations. Our whole home renovation was completed on time and within budget.",
       rating: 5
     },
     {
@@ -81,7 +81,7 @@ export default function Home() {
     },
     {
       title: "Quality Guarantee",
-      description: "We stand behind our work with comprehensive warranties.",
+      description: "I stand behind my work with comprehensive warranties.",
       icon: "🏆"
     },
     {
@@ -119,7 +119,7 @@ export default function Home() {
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-200">
               Premier home remodeling services in Dallas/Fort Worth. From kitchens to whole home renovations,
-              we bring your vision to life with exceptional craftsmanship.
+              I bring your vision to life with hands-on craftsmanship and personal attention to every detail.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md sm:max-w-none mx-auto">
@@ -226,7 +226,7 @@ export default function Home() {
               Our <span className="gradient-text">Services</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From concept to completion, we provide comprehensive remodeling solutions
+              From concept to completion, I provide comprehensive remodeling solutions
               tailored to your lifestyle and budget.
             </p>
           </motion.div>
@@ -291,8 +291,8 @@ export default function Home() {
               Why Choose <span className="gradient-text">Trinity Remodeling</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience the difference with our commitment to excellence,
-              local expertise, and customer satisfaction.
+              Experience the difference when the owner is on the job site &mdash;
+              committed to excellence, local expertise, and your complete satisfaction.
             </p>
           </motion.div>
 
@@ -331,10 +331,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold font-serif mb-6">
-              What Our <span className="gradient-text">Clients Say</span>
+              What My <span className="gradient-text">Clients Say</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Don&apos;t just take our word for it. Here&apos;s what our satisfied customers
+              Don&apos;t just take my word for it. Here&apos;s what satisfied homeowners
               throughout the DFW area have to say.
             </p>
           </motion.div>
@@ -386,7 +386,7 @@ export default function Home() {
               <span className="block">Dream Project?</span>
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Let&apos;s discuss your vision and provide you with a detailed,
+              Let&apos;s discuss your vision. I&apos;ll provide you with a detailed,
               no-obligation quote for your remodeling project.
             </p>
 
