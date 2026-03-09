@@ -133,25 +133,23 @@ export default function About() {
               className="relative mb-8"
             >
               <div
-                className="rounded-2xl shadow-2xl overflow-hidden"
+                className="rounded-2xl shadow-2xl overflow-hidden max-w-xs sm:max-w-sm lg:max-w-none mx-auto"
                 style={{
                   background: 'linear-gradient(135deg, #0A1A2F 0%, #1a3a5c 40%, #2BB6C9 100%)',
-                  height: '28rem',
                   display: 'flex',
                   alignItems: 'flex-end',
                   justifyContent: 'center',
-                  padding: '0 1.5rem',
+                  padding: '1.5rem 1.5rem 0',
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/nick-stephens-professional.png"
                   alt="Nick Stephens, founder of Trinity Remodeling"
+                  className="w-48 sm:w-56 lg:w-72"
                   style={{
-                    height: '95%',
-                    width: 'auto',
+                    height: 'auto',
                     objectFit: 'contain',
-                    objectPosition: 'bottom',
                     filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.4))',
                   }}
                 />
