@@ -107,7 +107,7 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}

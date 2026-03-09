@@ -92,7 +92,7 @@ export default function About() {
       {/* Nick's Story */}
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -338,7 +338,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="grid grid-cols-3 gap-px rounded-2xl overflow-hidden"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-px rounded-2xl overflow-hidden"
               style={{ background: 'rgba(43,182,201,0.2)' }}
             >
               {[
