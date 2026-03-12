@@ -88,13 +88,42 @@ function QuoteContent() {
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Quote form submitted:', data);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${data.firstName} ${data.lastName}`,
+          email: data.email,
+          phone: data.phone,
+          message: [
+            data.projectDescription,
+            data.designPreferences ? `Design preferences: ${data.designPreferences}` : '',
+            data.specialRequirements ? `Special requirements: ${data.specialRequirements}` : '',
+            data.budgetRange ? `Budget: ${data.budgetRange}` : '',
+            data.homeAge ? `Home age: ${data.homeAge}` : '',
+            data.previousWork ? `Previous work: ${data.previousWork}` : '',
+          ].filter(Boolean).join('\n\n'),
+          service_interest: data.serviceType,
+          source: 'website_quote',
+          project_address: [data.address, data.city, data.zipCode].filter(Boolean).join(', '),
+          project_timeline: data.timeline,
+          property_type: data.propertyType === 'Commercial' ? 'commercial' : 'residential',
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || 'Failed to submit');
+      }
+
       setIsSubmitted(true);
-      setIsSubmitting(false);
       reset();
-    }, 2000);
+    } catch (err) {
+      console.error('Quote submission error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const nextStep = () => {
