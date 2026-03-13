@@ -67,6 +67,9 @@ describe("updateSession middleware", () => {
 
   beforeEach(() => {
     process.env = { ...originalEnv };
+    // Set valid (non-placeholder) Supabase env vars so middleware doesn't early-return
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://test-project.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "test-anon-key";
     vi.clearAllMocks();
   });
 
