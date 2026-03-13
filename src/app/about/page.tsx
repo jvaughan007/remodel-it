@@ -403,12 +403,12 @@ export default function About() {
                 whileTap={{ scale: 0.95 }}
               >
                 <a
-                  href="tel:9725558746"
+                  href="tel:8178097997"
                   className="bg-transparent border-2 border-white text-white hover:bg-white px-12 py-4 rounded-lg font-semibold text-lg transition-all inline-block"
                   onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--accent-teal)'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = '#ffffff'; }}
                 >
-                  Call (972) 555-TRIN
+                  Call (817) 809-7997
                 </a>
               </motion.div>
             </div>

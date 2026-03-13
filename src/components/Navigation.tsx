@@ -148,7 +148,7 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center gap-4 xl:gap-5 flex-shrink-0">
             {/* Phone number: hidden on md (tablet), shown on lg (desktop) */}
             <a
-              href="tel:9725558746"
+              href="tel:8178097997"
               className="flex items-center gap-1.5 font-semibold text-sm no-underline whitespace-nowrap transition-colors duration-200"
               style={{ color: scrolled ? 'var(--deep-navy)' : '#ffffff' }}
               onMouseEnter={(e) => {
@@ -157,10 +157,10 @@ const Navigation = () => {
               onMouseLeave={(e) => {
                 e.currentTarget.style.color = scrolled ? 'var(--deep-navy)' : '#ffffff';
               }}
-              aria-label="Call us at (972) 555-TRIN"
+              aria-label="Call us at (817) 809-7997"
             >
               <PhoneIcon />
-              (972) 555-TRIN
+              (817) 809-7997
             </a>
 
             <Link
@@ -175,7 +175,7 @@ const Navigation = () => {
           {/* ── Tablet: show phone + quote, hide full nav links (md only) ── */}
           <div className="hidden md:flex lg:hidden items-center gap-3 flex-shrink-0">
             <a
-              href="tel:9725558746"
+              href="tel:8178097997"
               className="flex items-center gap-1 font-semibold text-sm no-underline whitespace-nowrap transition-colors duration-200"
               style={{ color: scrolled ? 'var(--deep-navy)' : '#ffffff' }}
               onMouseEnter={(e) => {
@@ -184,10 +184,10 @@ const Navigation = () => {
               onMouseLeave={(e) => {
                 e.currentTarget.style.color = scrolled ? 'var(--deep-navy)' : '#ffffff';
               }}
-              aria-label="Call us at (972) 555-TRIN"
+              aria-label="Call us at (817) 809-7997"
             >
               <PhoneIcon />
-              <span className="hidden sm:inline">(972) 555-TRIN</span>
+              <span className="hidden sm:inline">(817) 809-7997</span>
             </a>
 
             <Link
@@ -340,7 +340,7 @@ const Navigation = () => {
                 className="flex flex-col sm:flex-row sm:items-center gap-3 px-3 pb-2"
               >
                 <a
-                  href="tel:9725558746"
+                  href="tel:8178097997"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-2 no-underline font-semibold transition-colors duration-150"
                   style={{
@@ -353,10 +353,10 @@ const Navigation = () => {
                   onMouseLeave={(e) => {
                     e.currentTarget.style.color = 'var(--deep-navy)';
                   }}
-                  aria-label="Call us at (972) 555-TRIN"
+                  aria-label="Call us at (817) 809-7997"
                 >
                   <PhoneIcon />
-                  (972) 555-TRIN
+                  (817) 809-7997
                 </a>
 
                 <Link

@@ -1,11 +1,11 @@
 export const SITE = {
   name: "Trinity Remodeling",
-  url: "https://trinityremodelingdfw.com",
+  url: "https://trinity-remodeling.com",
   title: "Trinity Remodeling | Premier Home Remodeling in Dallas/Fort Worth",
   description: "Dallas/Fort Worth's trusted home remodeling professional. Kitchen remodels, bathroom renovations, whole home remodeling, and more.",
   author: "Nick Stephens",
-  email: "hello@trinityremodelingdfw.com",
-  phone: "(972) 555-TRIN",
+  email: "nicholas@trinity-remodeling.com",
+  phone: "(817) 809-7997",
   address: {
     street: "123 Trinity Drive",
     city: "Dallas",

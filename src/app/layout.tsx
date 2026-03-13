@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Trinity Remodeling - Premier Home Remodeling in Dallas/Fort Worth",
     description: "Transform your home with professional remodeling services in the DFW area",
-    url: "https://trinityremodelingdfw.com",
+    url: "https://trinity-remodeling.com",
     siteName: "Trinity Remodeling",
     images: [
       {

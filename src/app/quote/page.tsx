@@ -185,7 +185,7 @@ function QuoteContent() {
               Request Another Quote
             </button>
             <a
-              href="tel:9725558746"
+              href="tel:8178097997"
               className="btn-secondary text-center"
             >
               Call Us Now
@@ -193,7 +193,7 @@ function QuoteContent() {
           </div>
 
           <p className="text-sm text-gray-500 mt-6">
-            For immediate assistance, call me at (972) 555-TRIN
+            For immediate assistance, call me at (817) 809-7997
           </p>
         </motion.div>
       </div>
@@ -850,10 +850,10 @@ function QuoteContent() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-300 text-lg mb-3">Prefer to talk to someone directly?</p>
           <a
-            href="tel:9725558746"
+            href="tel:8178097997"
             className="text-3xl font-bold text-white hover:text-gray-200 transition-colors"
           >
-            Call (972) 555-TRIN
+            Call (817) 809-7997
           </a>
         </div>
       </section>

@@ -75,16 +75,16 @@ export default function Contact() {
     {
       icon: "📞",
       title: "Phone",
-      details: "(972) 555-TRIN",
+      details: "(817) 809-7997",
       subDetails: "Call or text anytime",
-      action: "tel:9725558746"
+      action: "tel:8178097997"
     },
     {
       icon: "✉️",
       title: "Email",
-      details: "hello@trinityremodelingdfw.com",
+      details: "nicholas@trinity-remodeling.com",
       subDetails: "I respond within 2 hours",
-      action: "mailto:hello@trinityremodelingdfw.com"
+      action: "mailto:nicholas@trinity-remodeling.com"
     },
     {
       icon: "📍",
@@ -121,7 +121,7 @@ export default function Contact() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Thank You!</h2>
           <p className="text-gray-600 mb-6">
             I&apos;ve received your message and will get back to you within 24 hours.
-            For urgent matters, call me directly at (972) 555-TRIN.
+            For urgent matters, call me directly at (817) 809-7997.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
@@ -443,13 +443,13 @@ export default function Contact() {
                   For urgent matters or emergency repairs, call us directly:
                 </p>
                 <a
-                  href="tel:9725558746"
+                  href="tel:8178097997"
                   className="text-2xl font-bold transition-colors"
                   style={{ color: 'var(--teal-dark)' }}
                   onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--deep-navy)'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--teal-dark)'; }}
                 >
-                  (972) 555-TRIN
+                  (817) 809-7997
                 </a>
               </motion.div>
             </motion.div>
@@ -505,7 +505,7 @@ export default function Contact() {
               Give me a call to confirm service in your area!
             </p>
             <a
-              href="tel:9725558746"
+              href="tel:8178097997"
               className="btn-primary inline-block"
             >
               Call to Confirm Service Area
@@ -558,7 +558,7 @@ export default function Contact() {
                 Get Directions
               </a>
               <a
-                href="tel:9725558746"
+                href="tel:8178097997"
                 className="btn-secondary"
               >
                 Call Before Visiting

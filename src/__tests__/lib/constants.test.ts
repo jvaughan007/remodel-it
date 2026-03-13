@@ -39,7 +39,7 @@ describe("SITE", () => {
   });
 
   it("url is the production domain", () => {
-    expect(SITE.url).toBe("https://trinityremodelingdfw.com");
+    expect(SITE.url).toBe("https://trinity-remodeling.com");
   });
 });
 

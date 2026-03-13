@@ -166,14 +166,14 @@ export async function POST(request: Request) {
   if (process.env.RESEND_API_KEY) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const adminEmail =
-      process.env.ADMIN_EMAIL || "hello@trinityremodelingdfw.com";
+      process.env.ADMIN_EMAIL || "nicholas@trinity-remodeling.com";
 
     const siteUrl =
-      process.env.NEXT_PUBLIC_SITE_URL || "https://trinityremodelingdfw.com";
+      process.env.NEXT_PUBLIC_SITE_URL || "https://trinity-remodeling.com";
 
     resend.emails
       .send({
-        from: "Trinity Remodeling <notifications@trinityremodelingdfw.com>",
+        from: "Trinity Remodeling <notifications@trinity-remodeling.com>",
         to: adminEmail.split(",").map((e) => e.trim()),
         subject: `New Lead: ${name}${serviceInterest ? ` — ${serviceInterest}` : ""}`,
         html: `

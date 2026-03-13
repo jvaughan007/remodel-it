@@ -422,10 +422,10 @@ export default function Home() {
             <div className="mt-12 text-white/80">
               <p className="text-lg mb-4">Call us today for immediate assistance</p>
               <a
-                href="tel:9725558746"
+                href="tel:8178097997"
                 className="text-3xl font-bold text-white hover:text-gray-200 transition-colors"
               >
-                (972) 555-TRIN
+                (817) 809-7997
               </a>
             </div>
           </motion.div>

@@ -400,10 +400,10 @@ export default function Gallery() {
                 whileTap={{ scale: 0.95 }}
               >
                 <a
-                  href="tel:9725558746"
+                  href="tel:8178097997"
                   className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 px-12 py-4 rounded-lg font-semibold text-lg transition-all inline-block"
                 >
-                  Call (972) 555-TRIN
+                  Call (817) 809-7997
                 </a>
               </motion.div>
             </div>
