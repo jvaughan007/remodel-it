@@ -173,7 +173,7 @@ export async function POST(request: Request) {
 
     resend.emails
       .send({
-        from: "Trinity Remodeling <notifications@trinity-remodeling.com>",
+        from: "Trinity Remodeling <notifications@mail.trinity-remodeling.com>",
         to: adminEmail.split(",").map((e) => e.trim()),
         subject: `New Lead: ${name}${serviceInterest ? ` — ${serviceInterest}` : ""}`,
         html: `
