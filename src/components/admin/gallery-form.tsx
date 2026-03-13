@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ImageInput } from "@/components/admin/image-input";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -248,56 +249,24 @@ export function GalleryForm({ project, mode }: GalleryFormProps) {
           <Card className="border-[#71797E]/10">
             <CardHeader>
               <CardTitle className="text-lg">Images</CardTitle>
+              <p className="text-xs text-[#71797E]">
+                Upload from your device (auto-compressed to save storage) or paste a URL from Instagram, Google Photos, etc.
+              </p>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="before_image_url">Before Image URL</Label>
-                  <Input
-                    id="before_image_url"
-                    value={beforeImageUrl}
-                    onChange={(e) => setBeforeImageUrl(e.target.value)}
-                    placeholder="https://..."
-                  />
-                  {beforeImageUrl && (
-                    <div className="mt-2 aspect-video overflow-hidden rounded-lg border border-[#71797E]/10">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={beforeImageUrl}
-                        alt="Before preview"
-                        className="h-full w-full object-cover"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display =
-                            "none";
-                        }}
-                      />
-                    </div>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="after_image_url">After Image URL</Label>
-                  <Input
-                    id="after_image_url"
-                    value={afterImageUrl}
-                    onChange={(e) => setAfterImageUrl(e.target.value)}
-                    placeholder="https://..."
-                  />
-                  {afterImageUrl && (
-                    <div className="mt-2 aspect-video overflow-hidden rounded-lg border border-[#71797E]/10">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={afterImageUrl}
-                        alt="After preview"
-                        className="h-full w-full object-cover"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display =
-                            "none";
-                        }}
-                      />
-                    </div>
-                  )}
-                </div>
+                <ImageInput
+                  label="Before Image"
+                  id="before_image"
+                  value={beforeImageUrl}
+                  onChange={setBeforeImageUrl}
+                />
+                <ImageInput
+                  label="After Image"
+                  id="after_image"
+                  value={afterImageUrl}
+                  onChange={setAfterImageUrl}
+                />
               </div>
 
               <Separator />
