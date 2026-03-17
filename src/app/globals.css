@@ -128,3 +128,19 @@ button, a, input, textarea, select {
     display: none;
   }
 }
+
+/* ==================== Business Card (/c) ==================== */
+.card-layout-root {
+  background: #0A1A2F;
+}
+
+body:has(.card-layout-root) {
+  background: #0A1A2F;
+}
+
+@media (display-mode: standalone) and (orientation: landscape) {
+  .card-layout-root {
+    padding-top: env(safe-area-inset-top, 0.5rem) !important;
+    align-items: center !important;
+  }
+}
