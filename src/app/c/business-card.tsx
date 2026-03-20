@@ -82,10 +82,10 @@ export function BusinessCard() {
         >
           {/* ==================== FRONT FACE ==================== */}
           <div
-            className="absolute inset-0 overflow-hidden rounded-2xl border border-white/10 p-[5%] shadow-2xl shadow-black/40"
+            className="absolute inset-0 overflow-hidden rounded-2xl border border-gray-200 p-[5%] shadow-2xl shadow-black/20"
             style={{
               backfaceVisibility: "hidden",
-              background: "linear-gradient(135deg, #132D4A 0%, #0A1A2F 100%)",
+              background: "#ffffff",
             }}
           >
             {/* Dot grid background texture */}
@@ -93,7 +93,7 @@ export function BusinessCard() {
               className="pointer-events-none absolute inset-0"
               style={{
                 backgroundImage:
-                  "radial-gradient(circle, rgba(43, 182, 201, 0.06) 0.5px, transparent 0.5px)",
+                  "radial-gradient(circle, rgba(10, 26, 47, 0.04) 0.5px, transparent 0.5px)",
                 backgroundSize: "16px 16px",
               }}
             />
@@ -120,15 +120,15 @@ export function BusinessCard() {
                   />
                 </div>
                 <div>
-                  <h1 className="font-serif text-[clamp(13px,3.5vw,22px)] font-semibold leading-tight tracking-tight text-[#F5F5F5]">
+                  <h1 className="font-serif text-[clamp(13px,3.5vw,22px)] font-semibold leading-tight tracking-tight text-[#0A1A2F]">
                     Trinity Remodeling
                   </h1>
-                  <p className="mt-0.5 text-[clamp(11px,2.5vw,16px)] text-[#8899AA]">
+                  <p className="mt-0.5 text-[clamp(11px,2.5vw,16px)] text-[#4A5568]">
                     Nick Stephens
                   </p>
                   <p
                     className="mt-1 font-mono text-[clamp(6px,1.5vw,10px)] uppercase"
-                    style={{ letterSpacing: "2px", color: "rgba(43, 182, 201, 0.6)" }}
+                    style={{ letterSpacing: "2px", color: "#2BB6C9" }}
                   >
                     Owner & General Contractor
                   </p>
@@ -140,33 +140,33 @@ export function BusinessCard() {
                 className="my-1 h-px w-full"
                 style={{
                   background: "linear-gradient(to right, #2BB6C9, transparent)",
-                  opacity: 0.4,
+                  opacity: 0.3,
                 }}
               />
 
               {/* Stats line */}
               <p
                 className="text-[clamp(7px,1.8vw,11px)]"
-                style={{ color: "rgba(43, 182, 201, 0.55)", letterSpacing: "1px" }}
+                style={{ color: "#2BB6C9", letterSpacing: "1px" }}
               >
                 500+ Projects · 15+ Years in DFW
               </p>
 
               {/* Contact info */}
               <div className="space-y-0.5">
-                <div className="flex items-center gap-2 text-[clamp(11px,2.5vw,16px)] text-[#8899AA]">
+                <div className="flex items-center gap-2 text-[clamp(11px,2.5vw,16px)] text-[#4A5568]">
                   <Mail className="h-3 w-3 shrink-0 text-[#2BB6C9]" />
                   <span>{VCARD.email}</span>
                 </div>
-                <div className="flex items-center gap-2 text-[clamp(11px,2.5vw,16px)] text-[#8899AA]">
+                <div className="flex items-center gap-2 text-[clamp(11px,2.5vw,16px)] text-[#4A5568]">
                   <Phone className="h-3 w-3 shrink-0 text-[#2BB6C9]" />
                   <span>{VCARD.phoneFormatted}</span>
                 </div>
-                <div className="flex items-center gap-2 text-[clamp(11px,2.5vw,16px)] text-[#8899AA]">
+                <div className="flex items-center gap-2 text-[clamp(11px,2.5vw,16px)] text-[#4A5568]">
                   <Globe className="h-3 w-3 shrink-0 text-[#2BB6C9]" />
                   <span
                     className="font-mono text-[clamp(10px,2.2vw,15px)] tracking-wide"
-                    style={{ color: "rgba(43, 182, 201, 0.7)" }}
+                    style={{ color: "#2BB6C9" }}
                   >
                     trinity-remodeling.com
                   </span>
@@ -177,7 +177,7 @@ export function BusinessCard() {
             {/* Flip hint */}
             <div
               className="absolute bottom-1 right-2 text-[clamp(7px,1.5vw,10px)] font-medium"
-              style={{ color: "rgba(43, 182, 201, 0.4)" }}
+              style={{ color: "rgba(43, 182, 201, 0.5)" }}
             >
               flip it
             </div>
@@ -212,13 +212,15 @@ export function BusinessCard() {
 
             {/* Compact logo */}
             <div className="relative mb-3 mt-4 flex items-center gap-2">
-              <Image
-                src="/trinity-logo.png"
-                alt="Trinity Remodeling"
-                width={24}
-                height={24}
-                className="h-6 w-auto"
-              />
+              <div className="rounded-md bg-white p-1">
+                <Image
+                  src="/trinity-logo.png"
+                  alt="Trinity Remodeling"
+                  width={24}
+                  height={24}
+                  className="h-6 w-auto"
+                />
+              </div>
               <span className="font-serif text-sm font-semibold text-[#F5F5F5]">
                 Trinity Remodeling
               </span>
