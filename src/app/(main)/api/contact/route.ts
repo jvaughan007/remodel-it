@@ -128,11 +128,27 @@ export async function POST(request: Request) {
 
   // ---- Insert lead into Supabase -----------------------------------------
   // Use service role key to bypass RLS (contact form is unauthenticated)
-  try {
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!supabaseUrl || !serviceRoleKey) {
+    console.error("Missing Supabase env vars:", {
+      hasUrl: !!supabaseUrl,
+      hasServiceKey: !!serviceRoleKey,
+    });
+    return NextResponse.json(
+      { error: "Server configuration error. Please contact us directly." },
+      { status: 500 }
     );
+  }
+
+  try {
+    const supabase = createClient(supabaseUrl, serviceRoleKey, {
+      auth: {
+        persistSession: false,
+        autoRefreshToken: false,
+      },
+    });
 
     const { error: dbError } = await supabase.from("leads").insert({
       name,
@@ -148,9 +164,18 @@ export async function POST(request: Request) {
     });
 
     if (dbError) {
-      console.error("Supabase insert error:", dbError);
+      console.error("Supabase insert error:", {
+        code: dbError.code,
+        message: dbError.message,
+        details: dbError.details,
+        hint: dbError.hint,
+      });
       return NextResponse.json(
-        { error: "Failed to save your message. Please try again." },
+        {
+          error: "Failed to save your message. Please try again.",
+          // Surface the raw error code so it is visible in browser network tab during debugging
+          debug: { code: dbError.code, message: dbError.message },
+        },
         { status: 500 }
       );
     }
