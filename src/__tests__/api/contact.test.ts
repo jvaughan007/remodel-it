@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { POST } from "@/app/api/contact/route";
+import { POST } from "@/app/(main)/api/contact/route";
 
 /* -------------------------------------------------------------------------- */
 /*  Module Mocks                                                               */
@@ -28,6 +28,14 @@ vi.mock("resend", () => ({
   Resend: class {
     emails = { send: mockEmailSend };
   },
+}));
+
+vi.mock("@/lib/emails", () => ({
+  buildConfirmationEmail: vi.fn(({ name }: { name: string }) => ({
+    subject: `Thanks for reaching out, ${name} — Trinity Remodeling`,
+    html: "<p>confirmation</p>",
+  })),
+  EMAIL_FROM: "Trinity Remodeling <notifications@mail.trinity-remodeling.com>",
 }));
 
 /* -------------------------------------------------------------------------- */
@@ -401,5 +409,33 @@ describe("POST /api/contact", () => {
     expect(mockInsert).toHaveBeenCalledWith(
       expect.objectContaining({ status: "new" })
     );
+  });
+
+  /* ---- Confirmation email to lead ---------------------------------------- */
+
+  it("sends confirmation email to the lead when RESEND_API_KEY is set", async () => {
+    process.env.RESEND_API_KEY = "re_test_key";
+    process.env.ADMIN_EMAIL = "admin@example.com";
+    mockEmailSend.mockResolvedValue({ id: "email-abc" });
+
+    const req = makeRequest({ ...VALID_BODY, service_interest: "Kitchen" });
+    await POST(req);
+
+    // Should be called twice: once for admin, once for lead confirmation
+    expect(mockEmailSend).toHaveBeenCalledTimes(2);
+
+    // Second call should be to the lead's email
+    const confirmationCall = mockEmailSend.mock.calls[1][0];
+    expect(confirmationCall.to).toEqual(["jane@example.com"]);
+    expect(confirmationCall.subject).toContain("Jane Smith");
+  });
+
+  it("does not send confirmation email when RESEND_API_KEY is not set", async () => {
+    delete process.env.RESEND_API_KEY;
+
+    const req = makeRequest(VALID_BODY);
+    await POST(req);
+
+    expect(mockEmailSend).not.toHaveBeenCalled();
   });
 });

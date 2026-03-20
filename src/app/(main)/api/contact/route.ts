@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
+import { buildConfirmationEmail, EMAIL_FROM } from "@/lib/emails";
 
 /* -------------------------------------------------------------------------- */
 /*  Validation Constants                                                      */
@@ -233,6 +234,24 @@ export async function POST(request: Request) {
       })
       .catch((err) => {
         console.error("Resend notification failed:", err);
+      });
+
+    // Send confirmation email to the lead (fire-and-forget)
+    const confirmation = buildConfirmationEmail({
+      name,
+      serviceInterest: serviceInterest || "",
+      siteUrl,
+    });
+
+    resend.emails
+      .send({
+        from: EMAIL_FROM,
+        to: [email],
+        subject: confirmation.subject,
+        html: confirmation.html,
+      })
+      .catch((err) => {
+        console.error("Confirmation email failed:", err);
       });
   }
 
