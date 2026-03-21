@@ -64,8 +64,8 @@ export default function Contact() {
 
       setIsSubmitted(true);
       reset();
-    } catch (err) {
-      console.error('Form submission error:', err);
+    } catch {
+      // Submission failed — user sees the form remain (no success screen)
     } finally {
       setIsSubmitting(false);
     }

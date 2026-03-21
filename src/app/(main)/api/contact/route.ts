@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
-import { buildConfirmationEmail, EMAIL_FROM } from "@/lib/emails";
+import { buildConfirmationEmail, EMAIL_FROM, escapeHtml } from "@/lib/emails";
 
 /* -------------------------------------------------------------------------- */
 /*  Validation Constants                                                      */
@@ -172,11 +172,7 @@ export async function POST(request: Request) {
         hint: dbError.hint,
       });
       return NextResponse.json(
-        {
-          error: "Failed to save your message. Please try again.",
-          // Surface the raw error code so it is visible in browser network tab during debugging
-          debug: { code: dbError.code, message: dbError.message },
-        },
+        { error: "Failed to save your message. Please try again." },
         { status: 500 }
       );
     }
@@ -197,6 +193,14 @@ export async function POST(request: Request) {
     const siteUrl =
       process.env.NEXT_PUBLIC_SITE_URL || "https://trinity-remodeling.com";
 
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safePhone = phone ? escapeHtml(phone) : "";
+    const safeService = serviceInterest ? escapeHtml(serviceInterest) : "";
+    const safeSubject = subject ? escapeHtml(subject) : "";
+    const safeAddress = projectAddress ? escapeHtml(projectAddress) : "";
+    const safeMessage = escapeHtml(message);
+
     resend.emails
       .send({
         from: "Trinity Remodeling <notifications@mail.trinity-remodeling.com>",
@@ -207,16 +211,16 @@ export async function POST(request: Request) {
         <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px;width:100%">
           <tr>
             <td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Name</td>
-            <td style="padding:8px 0">${name}</td>
+            <td style="padding:8px 0">${safeName}</td>
           </tr>
           <tr>
             <td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Email</td>
-            <td style="padding:8px 0"><a href="mailto:${email}" style="color:#2BB6C9">${email}</a></td>
+            <td style="padding:8px 0"><a href="mailto:${safeEmail}" style="color:#2BB6C9">${safeEmail}</a></td>
           </tr>
-          ${phone ? `<tr><td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Phone</td><td style="padding:8px 0"><a href="tel:${phone.replace(/\D/g, "")}" style="color:#2BB6C9">${phone}</a></td></tr>` : ""}
-          ${serviceInterest ? `<tr><td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Service</td><td style="padding:8px 0">${serviceInterest}</td></tr>` : ""}
-          ${subject ? `<tr><td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Subject</td><td style="padding:8px 0">${subject}</td></tr>` : ""}
-          ${projectAddress ? `<tr><td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Address</td><td style="padding:8px 0">${projectAddress}</td></tr>` : ""}
+          ${safePhone ? `<tr><td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Phone</td><td style="padding:8px 0"><a href="tel:${phone.replace(/\D/g, "")}" style="color:#2BB6C9">${safePhone}</a></td></tr>` : ""}
+          ${safeService ? `<tr><td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Service</td><td style="padding:8px 0">${safeService}</td></tr>` : ""}
+          ${safeSubject ? `<tr><td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Subject</td><td style="padding:8px 0">${safeSubject}</td></tr>` : ""}
+          ${safeAddress ? `<tr><td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Address</td><td style="padding:8px 0">${safeAddress}</td></tr>` : ""}
           ${projectTimeline ? `<tr><td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Timeline</td><td style="padding:8px 0">${projectTimeline.replace(/_/g, " ")}</td></tr>` : ""}
           ${propertyType ? `<tr><td style="padding:8px 12px 8px 0;font-weight:bold;color:#0A1A2F;vertical-align:top;white-space:nowrap">Property</td><td style="padding:8px 0">${propertyType}</td></tr>` : ""}
           <tr>
@@ -225,15 +229,15 @@ export async function POST(request: Request) {
           </tr>
         </table>
         <h3 style="margin:24px 0 8px;color:#0A1A2F">Message</h3>
-        <p style="margin:0;white-space:pre-wrap;color:#333;background:#f9f9f9;padding:12px;border-radius:8px">${message}</p>
+        <p style="margin:0;white-space:pre-wrap;color:#333;background:#f9f9f9;padding:12px;border-radius:8px">${safeMessage}</p>
         <hr style="margin:24px 0;border:none;border-top:1px solid #ddd" />
         <p style="margin:0;font-size:12px;color:#888">
           <a href="${siteUrl}/admin/leads" style="color:#2BB6C9">View in CRM &rarr;</a>
         </p>
       `,
       })
-      .catch((err) => {
-        console.error("Resend notification failed:", err);
+      .catch(() => {
+        // Admin notification failed — non-blocking
       });
 
     // Send confirmation email to the lead (fire-and-forget)
@@ -250,8 +254,8 @@ export async function POST(request: Request) {
         subject: confirmation.subject,
         html: confirmation.html,
       })
-      .catch((err) => {
-        console.error("Confirmation email failed:", err);
+      .catch(() => {
+        // Confirmation email failed — non-blocking
       });
   }
 

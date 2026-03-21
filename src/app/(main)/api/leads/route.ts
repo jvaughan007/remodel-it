@@ -36,9 +36,14 @@ export async function GET(request: Request) {
   }
 
   if (search) {
-    query = query.or(
-      `name.ilike.%${search}%,email.ilike.%${search}%,phone.ilike.%${search}%`
-    );
+    // Sanitize search input: strip characters that could manipulate the PostgREST
+    // filter DSL (commas, dots, parentheses, percent signs, etc.)
+    const sanitized = search.replace(/[%,.()"'\\]/g, "").trim();
+    if (sanitized) {
+      query = query.or(
+        `name.ilike.%${sanitized}%,email.ilike.%${sanitized}%,phone.ilike.%${sanitized}%`
+      );
+    }
   }
 
   const { data, error } = await query;

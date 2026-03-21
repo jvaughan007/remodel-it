@@ -36,7 +36,7 @@ export function buildConfirmationEmail({ name, serviceInterest, siteUrl }: Confi
   const projectLabel = safeService || "your project";
 
   return {
-    subject: `Thanks for reaching out, ${name} — Trinity Remodeling`,
+    subject: `Thanks for reaching out, ${safeName} — Trinity Remodeling`,
     html: `
       <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#333">
         <div style="background:${NAVY};padding:24px 32px;border-radius:8px 8px 0 0">
@@ -83,7 +83,7 @@ export function buildAdminReminderEmail({
   });
 
   return {
-    subject: `Reminder: ${name} is waiting to hear back — ${serviceInterest || "General Inquiry"}`,
+    subject: `Reminder: ${safeName} is waiting to hear back — ${safeService}`,
     html: `
       <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#333">
         <div style="background:${NAVY};padding:16px 24px;border-radius:8px 8px 0 0">
@@ -131,7 +131,9 @@ export function buildCustomerFollowupEmail({ name, serviceInterest }: CustomerFo
   const safeService = serviceInterest ? escapeHtml(serviceInterest) : "your project";
 
   return {
-    subject: `Still interested in your ${serviceInterest || "remodeling"} project? — Trinity Remodeling`,
+    subject: serviceInterest
+      ? `Still interested in your ${escapeHtml(serviceInterest)} project? — Trinity Remodeling`
+      : `Still interested in your remodeling project? — Trinity Remodeling`,
     html: `
       <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#333">
         <div style="background:${NAVY};padding:24px 32px;border-radius:8px 8px 0 0">

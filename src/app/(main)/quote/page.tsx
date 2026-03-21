@@ -119,8 +119,8 @@ function QuoteContent() {
 
       setIsSubmitted(true);
       reset();
-    } catch (err) {
-      console.error('Quote submission error:', err);
+    } catch {
+      // Submission failed — user sees the form remain (no success screen)
     } finally {
       setIsSubmitting(false);
     }
